@@ -146,7 +146,7 @@
 - [ ] Gt
 - [ ] Gte
 - [ ] IsArguments
-- [ ] IsArray
+- [x] IsArray
 - [ ] IsArrayBuffer
 - [ ] IsArrayLike
 - [ ] IsArrayLikeObject
@@ -155,7 +155,7 @@
 - [ ] IsDate
 - [ ] IsElement
 - [ ] IsEmpty
-- [ ] IsEqual
+- [x] IsEqual
 - [ ] IsEqualWith
 - [ ] IsError
 - [ ] IsFinite
