@@ -1,7 +1,5 @@
 # TODOs
 
-
-
 > 以下为待办事项，所有方法参考于`lodash`。使用`typescript`完成`lodash`的方法，实现一个`type-lodash`类型工具库。
 
 注：有些`lodash`中的一些的工具方法，可能没办法实现，暂时保留方法，待有思绪再进行拓展。对于实在没办法实现的可以提取当前函数的目标进行变相实现。
@@ -146,7 +144,8 @@
 - [ ] Gt
 - [ ] Gte
 - [ ] IsArguments
-- [x] IsArray
+- [x] **IsAny** 检查是否是 any 类型
+- [x] **IsArray** 检查 value 是否是 Array 类对象
 - [ ] IsArrayBuffer
 - [ ] IsArrayLike
 - [ ] IsArrayLikeObject
@@ -155,7 +154,7 @@
 - [ ] IsDate
 - [ ] IsElement
 - [ ] IsEmpty
-- [x] IsEqual
+- [x] **IsEqual** 执行深比较来确定两者的值是否相等
 - [ ] IsEqualWith
 - [ ] IsError
 - [ ] IsFinite
@@ -342,4 +341,3 @@
 - [ ] Times
 - [ ] ToPath
 - [ ] UniqueId
-
