@@ -144,17 +144,17 @@
 - [ ] Gt
 - [ ] Gte
 - [ ] IsArguments
-- [x] **IsAny** 检查是否是 any 类型
-- [x] **IsArray** 检查 value 是否是 Array 类对象
+- [x] **IsAny** 检查是否为 any 类型
+- [x] **IsArray** 检查是否为 Array 类型
 - [ ] IsArrayBuffer
 - [ ] IsArrayLike
 - [ ] IsArrayLikeObject
-- [x] **IsBoolean**检查 value 是否是原始 boolean 类型或者对象
+- [x] **IsBoolean** 检查是否是为 boolean 类型
 - [ ] IsBuffer
 - [ ] IsDate
 - [ ] IsElement
 - [ ] IsEmpty
-- [x] **IsEqual** 执行深比较来确定两者的值是否相等
+- [x] **IsEqual** 检查类型是否相等
 - [ ] IsEqualWith
 - [ ] IsError
 - [ ] IsFinite
@@ -167,7 +167,7 @@
 - [ ] IsNaN
 - [ ] IsNative
 - [ ] IsNil
-- [ ] IsNull
+- [x] **IsNull** 检查是否为 null 
 - [ ] IsNumber
 - [ ] IsObject
 - [ ] IsObjectLike
@@ -178,7 +178,7 @@
 - [ ] IsString
 - [ ] IsSymbol
 - [ ] IsTypedArray
-- [ ] IsUndefined
+- [x] **IsUndefined** 检查是否为undefined
 - [ ] IsWeakMap
 - [ ] IsWeakSet
 - [ ] Lt
