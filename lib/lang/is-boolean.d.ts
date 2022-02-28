@@ -1,6 +1,8 @@
 import type { IsAny } from './is-any';
+import type { IsNull } from './is-null';
+import type { IsUndefined } from './is-undefined';
 /**
- * Checks if value is classified as a boolean primitive or object.
+ * Check if type is boolean
  * 
  * @example
  * IsBoolean<null>
@@ -9,7 +11,11 @@ import type { IsAny } from './is-any';
  */
 export type IsBoolean<T> =
   IsAny<T> extends false
-    ? T extends boolean
-      ? true
+    ? IsNull<T> extends false
+      ? IsUndefined<T> extends false
+        ? [T] extends [boolean]
+          ? true
+          : false
+        : false
       : false
     : false

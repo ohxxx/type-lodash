@@ -1,5 +1,5 @@
 /**
- * Check if it is of type any
+ * Check if type is any
  * 
  * @example
  * IsAny<[]>

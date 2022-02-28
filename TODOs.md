@@ -149,7 +149,7 @@
 - [ ] IsArrayBuffer
 - [ ] IsArrayLike
 - [ ] IsArrayLikeObject
-- [ ] IsBoolean
+- [x] **IsBoolean**检查 value 是否是原始 boolean 类型或者对象
 - [ ] IsBuffer
 - [ ] IsDate
 - [ ] IsElement

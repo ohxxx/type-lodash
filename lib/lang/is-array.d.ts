@@ -1,7 +1,7 @@
 import type { IsAny } from './is-any';
 
 /**
- * Checks if value is classified as an Array object.
+ * Check if type is an array
  * 
  * @example
  * IsArray<[]>
