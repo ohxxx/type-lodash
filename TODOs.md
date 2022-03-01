@@ -156,7 +156,7 @@
 - [ ] IsEmpty
 - [x] **IsEqual** 检查类型是否相等
 - [ ] IsEqualWith
-- [ ] **IsError** 检查是否为Error类型
+- [x] **IsError** 检查是否为Error类型
 - [ ] IsFinite
 - [x] **IsFunction** 检查是否为Function类型
 - [ ] IsInteger
@@ -175,7 +175,7 @@
 - [ ] IsRegExp
 - [ ] IsSafeInteger
 - [x] **IsSet** 检查是否为set类型
-- [ ] IsString
+- [x] **IsString** 检查是否为string类型
 - [ ] IsSymbol
 - [ ] IsTypedArray
 - [x] **IsUndefined** 检查是否为undefined
