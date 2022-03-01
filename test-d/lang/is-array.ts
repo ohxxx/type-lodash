@@ -1,37 +1,36 @@
 import { expectType } from 'tsd'
 import type { IsArray } from '../../lib/lang/is-array'
 
-/**
- * TODO: optimization
- */
-const KEY = Symbol('KEY');
-
 declare const _any: IsArray<any>
 expectType<false>(_any)
 
-declare const _null: IsArray<null>
-expectType<false>(_null)
 
-declare const _undef: IsArray<undefined>
-expectType<false>(_undef)
+declare const _union: IsArray<'A' | 'B' | 'C'>
+expectType<false>(_union)
+
 
 declare const _unknown: IsArray<unknown>
 expectType<false>(_unknown)
 
-declare const _str: IsArray<''>
-expectType<false>(_str)
 
-declare const _arr: IsArray<[]>
-expectType<true>(_arr)
-
-declare const _bool: IsArray<true>
-expectType<false>(_bool)
-
-declare const _obj: IsArray<{ id: 1 }>
-expectType<false>(_obj)
-
-declare const _symb: IsArray<typeof KEY>
-expectType<false>(_symb)
-
-declare const _union: IsArray<'A' | 'B' | 'C'>
-expectType<false>(_union)
+const data = {
+	null: null,
+	undef: undefined,
+	str: 'A',
+	num: 1,
+	bool: false,
+	obj: {},
+  arr: ['A', 'B'],
+	symb: Symbol('KEY'),
+	fn: () => {},
+};
+declare function getType<T>(params: T): IsArray<T> 
+expectType<false>(getType(data.null));
+expectType<false>(getType(data.undef));
+expectType<false>(getType(data.str));
+expectType<false>(getType(data.num));
+expectType<false>(getType(data.bool));
+expectType<false>(getType(data.obj));
+expectType<true>(getType(data.arr)); // key
+expectType<false>(getType(data.symb));
+expectType<false>(getType(data.fn));

@@ -1,37 +1,36 @@
 import { expectType } from 'tsd'
 import type { IsAny } from '../../lib/lang/is-any'
 
-/**
- * TODO: optimization
- */
-const KEY = Symbol('KEY');
-
 declare const _any: IsAny<any>
-expectType<true>(_any)
+expectType<true>(_any) // key
 
-declare const _null: IsAny<null>
-expectType<false>(_null)
 
-declare const _undef: IsAny<undefined>
-expectType<false>(_undef)
+declare const _union: IsAny<'A' | 'B' | 'C'>
+expectType<false>(_union)
+
 
 declare const _unknown: IsAny<unknown>
 expectType<false>(_unknown)
 
-declare const _str: IsAny<''>
-expectType<false>(_str)
 
-declare const _arr: IsAny<[]>
-expectType<false>(_arr)
-
-declare const _bool: IsAny<true>
-expectType<false>(_bool)
-
-declare const _obj: IsAny<{ id: 1 }>
-expectType<false>(_obj)
-
-declare const _symb: IsAny<typeof KEY>
-expectType<false>(_symb)
-
-declare const _union: IsAny<'A' | 'B' | 'C'>
-expectType<false>(_union)
+const data = {
+	null: null,
+	undef: undefined,
+	str: 'A',
+	num: 1,
+	bool: false,
+	obj: {},
+  arr: ['A', 'B'],
+	symb: Symbol('KEY'),
+	fn: () => {},
+};
+declare function getType<T>(params: T): IsAny<T> 
+expectType<false>(getType(data.null));
+expectType<false>(getType(data.undef));
+expectType<false>(getType(data.str));
+expectType<false>(getType(data.num));
+expectType<false>(getType(data.bool));
+expectType<false>(getType(data.obj));
+expectType<false>(getType(data.arr));
+expectType<false>(getType(data.symb));
+expectType<false>(getType(data.fn));

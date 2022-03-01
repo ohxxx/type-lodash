@@ -1,37 +1,36 @@
 import { expectType } from 'tsd'
 import type { IsUndefined } from '../../lib/lang/is-undefined'
 
-/**
- * TODO: optimization
- */
-const KEY = Symbol('KEY');
-
 declare const _any: IsUndefined<any>
-expectType<true>(_any)
+expectType<false>(_any) 
 
-declare const _null: IsUndefined<null>
-expectType<false>(_null)
 
-declare const _undef: IsUndefined<undefined>
-expectType<true>(_undef)
+declare const _union: IsUndefined<'A' | 'B' | 'C'>
+expectType<false>(_union)
+
 
 declare const _unknown: IsUndefined<unknown>
 expectType<false>(_unknown)
 
-declare const _str: IsUndefined<''>
-expectType<false>(_str)
 
-declare const _arr: IsUndefined<[]>
-expectType<false>(_arr)
-
-declare const _bool: IsUndefined<true>
-expectType<false>(_bool)
-
-declare const _obj: IsUndefined<{ id: 1 }>
-expectType<false>(_obj)
-
-declare const _symb: IsUndefined<typeof KEY>
-expectType<false>(_symb)
-
-declare const _union: IsUndefined<'A' | 'B' | 'C'>
-expectType<false>(_union)
+const data = {
+	null: null,
+	undef: undefined,
+	str: 'A',
+	num: 1,
+	bool: false,
+	obj: {},
+  arr: ['A', 'B'],
+	symb: Symbol('KEY'),
+	fn: () => {},
+};
+declare function getType<T>(params: T): IsUndefined<T> 
+expectType<false>(getType(data.null)); 
+expectType<true>(getType(data.undef)); // key
+expectType<false>(getType(data.str));
+expectType<false>(getType(data.num));
+expectType<false>(getType(data.bool));
+expectType<false>(getType(data.obj));
+expectType<false>(getType(data.arr));
+expectType<false>(getType(data.symb));
+expectType<false>(getType(data.fn));
