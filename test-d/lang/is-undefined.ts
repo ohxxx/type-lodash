@@ -1,4 +1,5 @@
 import { expectType } from 'tsd'
+import { basicData } from './constant'
 import type { IsUndefined } from '../../lib/lang/is-undefined'
 
 declare const _any: IsUndefined<any>
@@ -13,24 +14,13 @@ declare const _unknown: IsUndefined<unknown>
 expectType<false>(_unknown)
 
 
-const data = {
-	null: null,
-	undef: undefined,
-	str: 'A',
-	num: 1,
-	bool: false,
-	obj: {},
-  arr: ['A', 'B'],
-	symb: Symbol('KEY'),
-	fn: () => {},
-};
 declare function getType<T>(params: T): IsUndefined<T> 
-expectType<false>(getType(data.null)); 
-expectType<true>(getType(data.undef)); // key
-expectType<false>(getType(data.str));
-expectType<false>(getType(data.num));
-expectType<false>(getType(data.bool));
-expectType<false>(getType(data.obj));
-expectType<false>(getType(data.arr));
-expectType<false>(getType(data.symb));
-expectType<false>(getType(data.fn));
+expectType<false>(getType(basicData.null)); 
+expectType<true>(getType(basicData.undef)); // key
+expectType<false>(getType(basicData.str));
+expectType<false>(getType(basicData.num));
+expectType<false>(getType(basicData.bool));
+expectType<false>(getType(basicData.obj));
+expectType<false>(getType(basicData.arr));
+expectType<false>(getType(basicData.symb));
+expectType<false>(getType(basicData.fn));

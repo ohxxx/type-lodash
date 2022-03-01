@@ -1,0 +1,17 @@
+export const basicData = {
+	null: null,
+	undef: undefined,
+	str: 'A',
+	num: 1,
+	bool: false,
+	obj: {},
+  arr: ['A', 'B'],
+	symb: Symbol('KEY'),
+  fn: () => { },
+  date: new Date(),
+  err: new Error(),
+  set: new Set([]),
+  weakSet: new WeakSet([]),
+  map: new Map(),
+  weakMap: new WeakMap(),
+};

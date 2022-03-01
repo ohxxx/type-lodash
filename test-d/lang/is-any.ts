@@ -1,4 +1,5 @@
 import { expectType } from 'tsd'
+import { basicData } from './constant'
 import type { IsAny } from '../../lib/lang/is-any'
 
 declare const _any: IsAny<any>
@@ -13,24 +14,13 @@ declare const _unknown: IsAny<unknown>
 expectType<false>(_unknown)
 
 
-const data = {
-	null: null,
-	undef: undefined,
-	str: 'A',
-	num: 1,
-	bool: false,
-	obj: {},
-  arr: ['A', 'B'],
-	symb: Symbol('KEY'),
-	fn: () => {},
-};
 declare function getType<T>(params: T): IsAny<T> 
-expectType<false>(getType(data.null));
-expectType<false>(getType(data.undef));
-expectType<false>(getType(data.str));
-expectType<false>(getType(data.num));
-expectType<false>(getType(data.bool));
-expectType<false>(getType(data.obj));
-expectType<false>(getType(data.arr));
-expectType<false>(getType(data.symb));
-expectType<false>(getType(data.fn));
+expectType<false>(getType(basicData.null));
+expectType<false>(getType(basicData.undef));
+expectType<false>(getType(basicData.str));
+expectType<false>(getType(basicData.num));
+expectType<false>(getType(basicData.bool));
+expectType<false>(getType(basicData.obj));
+expectType<false>(getType(basicData.arr));
+expectType<false>(getType(basicData.symb));
+expectType<false>(getType(basicData.fn));
