@@ -275,7 +275,7 @@
 ## String
 
 - [ ] CamelCase
-- [ ] Capitalize
+- [x] **Capitalize** 字符串首字母大写，其余小写
 - [ ] Deburr
 - [ ] EndsWith
 - [ ] Escape
