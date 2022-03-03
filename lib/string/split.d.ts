@@ -5,7 +5,7 @@
  * type Test = BuildStringArray<[], 'xxx'>
  * >>> ['xxx']
  */
-type BuildStringArray<Arr extends string[], Item extends string> = [...Arr, Item]
+export type BuildStringArray<Arr extends string[], Item extends string> = [...Arr, Item]
 
 
 /**

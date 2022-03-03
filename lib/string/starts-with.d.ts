@@ -35,7 +35,7 @@ import type { Split } from "./split"
  * [第三步]: 获取指定下标的字符串
  * 
  * @example
- * GetIndexString<'abc', 1>
+ * type Test = GetIndexString<'abc', 1>
  * >>> b
  */
 type GetIndexString<
@@ -48,7 +48,7 @@ type GetIndexString<
 
 
 /**
- * [最后]]: 判断字符串是否以给定的目标字符串开头
+ * [最后]: 判断字符串是否以给定的目标字符串开头
  * 
  * 实现思路:
  *    1、将字符串转成数组

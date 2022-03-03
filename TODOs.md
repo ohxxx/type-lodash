@@ -277,7 +277,7 @@
 - [ ] CamelCase
 - [x] **Capitalize** 字符串首字母大写，其余小写
 - [ ] Deburr
-- [ ] EndsWith
+- [x] **EndsWith** 判断字符串是否以指定字符结尾
 - [ ] Escape
 - [ ] EscapeRegExp
 - [ ] KebabCase
@@ -292,10 +292,10 @@
 - [ ] SnakeCase
 - [x] **Split** 按分隔符拆分字符串
 - [ ] StartCase
-- [x] **StartsWith** 检查字符串 string 是否以 target 开头
+- [x] **StartsWith** 判断字符串是否以指定字符开头
 - [ ] Template
-- [x] **ToLower** 转换整个 string 字符串的字符为小写
-- [x] **ToUpper** 转换整个 string 字符串的字符为大写
+- [x] **ToLower** 转换整个字符串的字符为小写
+- [x] **ToUpper** 转换整个字符串的字符为大写
 - [ ] Trim
 - [ ] TrimEnd
 - [ ] TrimStart
