@@ -1,10 +1,10 @@
 import type { IsAny } from "./is-any";
 
 /**
- * Check if type is number
+ * 判断类型是否是 number
  * 
  * @example
- * IsNumber<11>
+ * type Test = IsNumber<11>
  * >>> true
  */
 export type IsNumber<T> = 

@@ -1,10 +1,10 @@
 import type { IsAny } from "./is-any";
 
 /**
- * Check if type is function
+ * 判断类型是否是 function
  * 
  * @example
- * IsFunction<() => void>
+ * type Test = IsFunction<() => void>
  * >>> true
  */
 export type IsFunction<T> = 

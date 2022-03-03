@@ -2,10 +2,10 @@ import type { IsAny } from "./is-any";
 import type { IsSet } from "./is-set";
 
 /**
- * Check if type is weakset
+ * 判断类型是否是 weakMap
  * 
  * @example
- * IsWeakSet<{}>
+ * type Test = IsWeakSet<{}>
  * >>> false
  */
 export type IsWeakSet<T> = 

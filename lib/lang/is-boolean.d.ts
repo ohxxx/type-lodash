@@ -2,10 +2,10 @@ import type { IsAny } from './is-any';
 import type { IsNull } from './is-null';
 import type { IsUndefined } from './is-undefined';
 /**
- * Check if type is boolean
+ * 判断类型是否是 boolean
  * 
  * @example
- * IsBoolean<null>
+ * type Test = IsBoolean<null>
  * >>> false
  * 
  */

@@ -5,11 +5,12 @@ import type { IsError } from '../../lib/lang/is-error'
 declare const _any: IsError<any>
 expectType<false>(_any) 
 
+
 const _err = new Error()
 declare const _unionErr: IsError<typeof _err | typeof basicData.err>
-expectType<true>(_unionErr)  // key
+expectType<true>(_unionErr)  // 关键
 declare const _unionSet: IsError<'1' | 2 | '3'>
-expectType<false>(_unionSet)  // key
+expectType<false>(_unionSet)  // 关键
 
 
 declare const _unknown: IsError<unknown>
@@ -27,4 +28,4 @@ expectType<false>(getType(basicData.arr));
 expectType<false>(getType(basicData.symb));
 expectType<false>(getType(basicData.fn));
 expectType<false>(getType(basicData.date));
-expectType<true>(getType(basicData.err)); // key
+expectType<true>(getType(basicData.err)); // 关键

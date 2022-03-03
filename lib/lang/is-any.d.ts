@@ -1,8 +1,8 @@
 /**
- * Check if type is any
+ * 判断类型是否是 any
  * 
  * @example
- * IsAny<[]>
+ * type Test = IsAny<[]>
  * >>> false
  * 
  */

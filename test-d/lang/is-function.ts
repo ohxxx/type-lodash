@@ -5,11 +5,12 @@ import type { IsFunction } from '../../lib/lang/is-function'
 declare const _any: IsFunction<any>
 expectType<false>(_any) 
 
+
 const TF1 = () => undefined
 declare const _unionFn: IsFunction<typeof TF1 | typeof basicData.fn | Function>
-expectType<true>(_unionFn)  // key
+expectType<true>(_unionFn)  // 关键
 declare const _unionSet: IsFunction<'1' | 2 | '3'>
-expectType<false>(_unionSet)  // key
+expectType<false>(_unionSet)  // 关键
 
 
 declare const _unknown: IsFunction<unknown>
@@ -25,7 +26,7 @@ expectType<false>(getType(basicData.bool));
 expectType<false>(getType(basicData.obj));
 expectType<false>(getType(basicData.arr));
 expectType<false>(getType(basicData.symb));
-expectType<true>(getType(basicData.fn)); // key
+expectType<true>(getType(basicData.fn)); // 关键
 expectType<false>(getType(basicData.date));
 expectType<false>(getType(basicData.set));
 expectType<false>(getType(basicData.weakSet));

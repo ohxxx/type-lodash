@@ -9,9 +9,9 @@ expectType<false>(_any)
 const S1 = new Set()
 const S2 = new Set([])
 declare const _unionSet: IsSet<typeof S1 | typeof S2>
-expectType<true>(_unionSet)  // key
+expectType<true>(_unionSet)  // 关键
 declare const _union: IsSet<typeof S1 | typeof basicData.set | []>
-expectType<false>(_union)  // key
+expectType<false>(_union)  // 关键
 
 
 declare const _unknown: IsSet<unknown>
@@ -29,4 +29,4 @@ expectType<false>(getType(basicData.arr));
 expectType<false>(getType(basicData.symb));
 expectType<false>(getType(basicData.fn));
 expectType<false>(getType(basicData.date));
-expectType<true>(getType(basicData.set)); // key
+expectType<true>(getType(basicData.set)); // 关键

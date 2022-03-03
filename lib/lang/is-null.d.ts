@@ -1,9 +1,9 @@
 import type { IsAny } from './is-any';
 /**
- * Check if type is null
+ * 判断类型是否是 null
  * 
  * @example
- * IsNull<number>
+ * type Test = IsNull<number>
  * >>> false
  */
 export type IsNull<T> =

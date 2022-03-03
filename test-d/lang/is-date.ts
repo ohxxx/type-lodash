@@ -10,9 +10,9 @@ const D1 = new Date()
 const D2 = 2
 const D3 = new Date()
 declare const _unionDate: IsDate<typeof D1 | typeof D3>
-expectType<true>(_unionDate)  // key
+expectType<true>(_unionDate)  // 关键
 declare const _unionSet: IsDate<typeof D1 | typeof D2 | typeof D3>
-expectType<false>(_unionSet)  // key
+expectType<false>(_unionSet)  // 关键
 
 
 declare const _unknown: IsDate<unknown>
@@ -29,4 +29,4 @@ expectType<false>(getType(basicData.obj));
 expectType<false>(getType(basicData.arr));
 expectType<false>(getType(basicData.symb));
 expectType<false>(getType(basicData.fn));
-expectType<true>(getType(basicData.date));  // key
+expectType<true>(getType(basicData.date));  // 关键

@@ -21,6 +21,6 @@ expectType<false>(getType(basicData.str));
 expectType<false>(getType(basicData.num));
 expectType<false>(getType(basicData.bool));
 expectType<false>(getType(basicData.obj));
-expectType<true>(getType(basicData.arr)); // key
+expectType<true>(getType(basicData.arr)); // 关键
 expectType<false>(getType(basicData.symb));
 expectType<false>(getType(basicData.fn));

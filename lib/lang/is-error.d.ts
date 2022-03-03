@@ -1,10 +1,10 @@
 import type { IsAny } from "./is-any";
 
 /**
- * Check if type is error
+ * 判断类型是否是 error
  * 
  * @example
- * IsError<'xxx'>
+ * type Test = IsError<'xxx'>
  * >>> false
  */
 export type IsError<T> = 

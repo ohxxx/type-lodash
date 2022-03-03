@@ -1,9 +1,9 @@
 import type { IsAny } from './is-any';
 /**
- * Check if type is undefined
+ * 判断类型是否是 undefined
  * 
  * @example
- * IsUndefined<number>
+ * type Test = IsUndefined<number>
  * >>> false
  */
 export type IsUndefined<T> = 

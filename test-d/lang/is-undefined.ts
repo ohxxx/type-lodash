@@ -16,7 +16,7 @@ expectType<false>(_unknown)
 
 declare function getType<T>(params: T): IsUndefined<T> 
 expectType<false>(getType(basicData.null)); 
-expectType<true>(getType(basicData.undef)); // key
+expectType<true>(getType(basicData.undef)); // 关键
 expectType<false>(getType(basicData.str));
 expectType<false>(getType(basicData.num));
 expectType<false>(getType(basicData.bool));

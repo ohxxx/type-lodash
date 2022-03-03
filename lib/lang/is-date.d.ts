@@ -1,10 +1,10 @@
 import type { IsAny } from "./is-any";
 
 /**
- * Check if type is date
+ * 判断类型是否是 date
  * 
  * @example
- * IsDate<123>
+ * type Test = IsDate<123>
  * >>> false
  */
 export type IsDate<T> = 

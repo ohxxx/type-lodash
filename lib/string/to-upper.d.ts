@@ -1,11 +1,11 @@
 /**
- * ToUpper
+ * 将整个字符串转成大写
  * 
- * It can be done directly with the help of the built-in Uppercase in typescript
- * Here is just an alias function
+ * 借助 typescript 中内置的 Uppercase 直接完成
+ * 这里只是另起了一个别名，与 lodash 同步
  * 
  * @example
- * ToUpper<'foo'>
+ * type Test = ToUpper<'foo'>
  * >>> FOO
  */
 export type ToUpper<S extends string> = Uppercase<S>

@@ -1,10 +1,10 @@
 import type { IsAny } from './is-any';
 
 /**
- * Check if type is an array
+ * 判断类型是否是 array
  * 
  * @example
- * IsArray<[]>
+ * type Test = IsArray<[]>
  * >>> true
  * 
  */

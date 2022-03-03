@@ -3,7 +3,7 @@ import { basicData } from './constant'
 import type { IsAny } from '../../lib/lang/is-any'
 
 declare const _any: IsAny<any>
-expectType<true>(_any) // key
+expectType<true>(_any) // 关键
 
 
 declare const _union: IsAny<'A' | 'B' | 'C'>

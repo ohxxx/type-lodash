@@ -4,10 +4,10 @@ import { IsDate } from "./is-date";
 import type { IsFunction } from "./is-function";
 
 /**
- * Check if type is object
+ * 判断类型是否是 object
  * 
  * @example
- * IsObject<{}>
+ * type Test = IsObject<{}>
  * >>> true
  */
 export type IsObject<T> = 

@@ -1,10 +1,10 @@
 import type { IsAny } from "./is-any";
 
 /**
- * Check if type is set
+ * 判断类型是否是 set
  * 
  * @example
- * IsSet<{}>
+ * type Test = IsSet<{}>
  * >>> false
  */
 export type IsSet<T> = 

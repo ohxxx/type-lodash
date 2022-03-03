@@ -1,8 +1,8 @@
 /**
- * Check for equality
+ * 判断是否相等
  * 
  * @example
- * IsEqual<1, 2>
+ * type Test = IsEqual<1, 2>
  * >>> false
  */
 export type IsEqual<A, B> =

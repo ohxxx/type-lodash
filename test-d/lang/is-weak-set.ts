@@ -12,11 +12,11 @@ const WS1 = new WeakSet()
 const WS2 = new WeakSet([])
 
 declare const _unionSet1: IsWeakSet<typeof WS1 | typeof WS2>
-expectType<true>(_unionSet1)  // key
+expectType<true>(_unionSet1)  // 关键
 declare const _unionSet2: IsWeakSet<typeof WS1 | typeof S1>
-expectType<true>(_unionSet2)  // key
+expectType<true>(_unionSet2)  // 关键
 declare const _union: IsWeakSet<typeof S2 | typeof basicData.set | typeof WS2| []>
-expectType<false>(_union)  // key
+expectType<false>(_union)  // 关键
 
 
 declare const _unknown: IsWeakSet<unknown>
@@ -34,5 +34,5 @@ expectType<false>(getType(basicData.arr));
 expectType<false>(getType(basicData.symb));
 expectType<false>(getType(basicData.fn));
 expectType<false>(getType(basicData.date));
-expectType<false>(getType(basicData.set)); // key
-expectType<true>(getType(basicData.weakSet)); // key
+expectType<false>(getType(basicData.set)); // 关键
+expectType<true>(getType(basicData.weakSet)); // 关键

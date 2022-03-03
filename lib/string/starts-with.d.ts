@@ -1,20 +1,23 @@
 import type { Split } from "./split"
 
 /**
- * [Step 1]: Build string array
+ * [第一步]: 将字符串转成数组
  * 
- * Using the Split method
+ * 直接使用 Split 
+ * @example
+ * type Test = Split<'halo'>
+ * >> ["h", "a", "l", "o"]
  */
-// type Test = Split<'halo'>
-// >>>  ["h", "a", "l", "o"]
 
 
 /**
- * [Step 2]: Determine whether the first character of the character satisfies the matching condition
+ * [第二步]: 判断字符的第一个字符是否满足匹配条件
  * 
  * @example
- * MatchFirstString<'abc', 'a'>
+ * type Test1 = MatchFirstString<'abc', 'a'>
  * >>> true
+ * type Test2 = MatchFirstString<'abc', 'c'>
+ * >>> false
  */
 // type MatchFirstString<
 //   Str extends string,
@@ -25,14 +28,11 @@ import type { Split } from "./split"
 //       ? true
 //       : false
 //   : false
-// type Test1 = MatchFirstString<'abc', 'a'>
-// >>> true
-// type Test2 = MatchFirstString<'abc', 'c'>
-// >>> false
+
 
 
 /**
- * [Step 3]: Get the string with the specified subscript
+ * [第三步]: 获取指定下标的字符串
  * 
  * @example
  * GetIndexString<'abc', 1>
@@ -45,22 +45,22 @@ type GetIndexString<
   Split<Str>[Position] extends string
     ? Split<Str>[Position]
     : null
-// type Test = GetIndexString<'abc', 1>
-// >>> b
 
 
 /**
- * [Ultimate]: Checks if string starts with the given target string
+ * [最后]]: 判断字符串是否以给定的目标字符串开头
  * 
- * Implementation steps:
- *    1、String to Array
- *    2、Get the character at the specified subscript
- *    3、Determine whether the character obtained by the subscript can be assigned to the target matching character
- *        a、Yes - return true
- *        b、No - return false
+ * 实现思路:
+ *    1、将字符串转成数组
+ *    2、获取指定下标的字符
+ *    3、判断通过下标得到的字符是否可以分配给目标字符
+ *        a、可以 - 返回 true
+ *        b、不可以 - 返回 false
  * 
  * @example
- * StartsWith<'foobar', 'b', 3>
+ * type Test1 = StartsWith<'foobar', 'a'>
+ * >>> false
+ * type Test2 = StartsWith<'abc', 'b', 1>
  * >>> true
  */
 export type StartsWith<
@@ -71,5 +71,3 @@ export type StartsWith<
   GetIndexString<Str, Position> extends Target
     ? true
     : false
-// type Test1 = StartsWith<'abc', 'b', 1>
-// >>> true
