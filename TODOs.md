@@ -151,14 +151,14 @@
 - [ ] IsArrayLikeObject
 - [x] **IsBoolean** 检查是否是为 boolean 类型
 - [ ] IsBuffer
-- [x] **IsDate** 检查是否为Date类型
+- [x] **IsDate** 检查是否为 Date 类型
 - [ ] IsElement
 - [ ] IsEmpty
 - [x] **IsEqual** 检查类型是否相等
 - [ ] IsEqualWith
-- [x] **IsError** 检查是否为Error类型
+- [x] **IsError** 检查是否为 Error 类型
 - [ ] IsFinite
-- [x] **IsFunction** 检查是否为Function类型
+- [x] **IsFunction** 检查是否为 Function 类型
 - [ ] IsInteger
 - [ ] IsLength
 - [ ] IsMap
@@ -167,20 +167,20 @@
 - [ ] IsNaN
 - [ ] IsNative
 - [ ] IsNil
-- [x] **IsNull** 检查是否为 null 
-- [x] **IsNumber** 检查是否为number类型
-- [x] **IsObject** 检查是否为Object类型
+- [x] **IsNull** 检查是否为 null
+- [x] **IsNumber** 检查是否为 number 类型
+- [x] **IsObject** 检查是否为 Object 类型
 - [ ] IsObjectLike
 - [ ] IsPlainObject
 - [ ] IsRegExp
 - [ ] IsSafeInteger
-- [x] **IsSet** 检查是否为set类型
-- [x] **IsString** 检查是否为string类型
+- [x] **IsSet** 检查是否为 set 类型
+- [x] **IsString** 检查是否为 string 类型
 - [ ] IsSymbol
 - [ ] IsTypedArray
-- [x] **IsUndefined** 检查是否为undefined
+- [x] **IsUndefined** 检查是否为 undefined
 - [ ] IsWeakMap
-- [x] **IsWeakSet** 检查是否为weakset类型
+- [x] **IsWeakSet** 检查是否为 weakset 类型
 - [ ] Lt
 - [ ] Lte
 - [ ] ToArray
@@ -292,7 +292,7 @@
 - [ ] SnakeCase
 - [x] **Split** 按分隔符拆分字符串
 - [ ] StartCase
-- [ ] StartsWith
+- [x] **StartsWith** 检查字符串 string 是否以 target 开头
 - [ ] Template
 - [ ] ToLower
 - [ ] ToUpper

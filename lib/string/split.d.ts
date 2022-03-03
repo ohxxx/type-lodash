@@ -6,8 +6,8 @@
  * >>> ['xxx']
  */
 type BuildStringArray<Arr extends string[], Item extends string> = [...Arr, Item]
-// type Test = BuildStringArray<[], '1' | '2'>
-// >>> ['1', '2']
+// type Test = BuildStringArray<[], '1'>
+// >>> ['1']
 
 
 /**
