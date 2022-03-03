@@ -294,8 +294,8 @@
 - [ ] StartCase
 - [x] **StartsWith** 检查字符串 string 是否以 target 开头
 - [ ] Template
-- [ ] ToLower
-- [ ] ToUpper
+- [x] **ToLower** 转换整个 string 字符串的字符为小写
+- [x] **ToUpper** 转换整个 string 字符串的字符为大写
 - [ ] Trim
 - [ ] TrimEnd
 - [ ] TrimStart
