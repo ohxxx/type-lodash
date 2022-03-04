@@ -9,7 +9,7 @@
  * 实现思路：直接使用类型推断进行类型分配判断
  * 
  * @example
- * type Test = TrimStart<'  abc '>
+ * type Test = TrimStart<' abc '>
  * >>> "abc "
  */
 export type TrimStart<
@@ -19,5 +19,3 @@ export type TrimStart<
   Str extends `${Chars}${infer Rest}`
     ? TrimStart<Rest, Chars>
     : Str
-
-type Test = TrimStart<'  abc '>
