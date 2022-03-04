@@ -4,6 +4,9 @@ import type { IsSet } from "./is-set";
 /**
  * 判断类型是否是 weakMap
  * 
+ * @param { any } T - 要判断的类型
+ * @return { boolean } 返回是否符合
+ * 
  * @example
  * type Test = IsWeakSet<{}>
  * >>> false

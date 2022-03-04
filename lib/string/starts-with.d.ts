@@ -57,6 +57,12 @@ type GetIndexString<
  *        a、可以 - 返回 true
  *        b、不可以 - 返回 false
  * 
+ * 
+ * @param { string } Str - 检索的字符串
+ * @param { string } Target - 检索的字符
+ * @param { number } Position - 检索的位置（默认为0）
+ * @return { boolean } 返回是否存在
+ * 
  * @example
  * type Test1 = StartsWith<'foobar', 'a'>
  * >>> false

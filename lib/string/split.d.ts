@@ -35,6 +35,14 @@ export type BuildStringArray<Arr extends string[], Item extends string> = [...Ar
  *        a、可以 - 返回当前结果集
  *        b、不可以 - 将最后一个字符放入结果集中
  * 
+ * 
+ * @param {} Str - 需要拆分的字符串
+ * @param {} Delimiter - 拆分的分隔符（默认为空字符串）
+ * @param {} Result - 最后拆分后的数组（内部函数使用）
+ * @return { string[] } 最后拆分后的结果
+ * 
+ * @todo: 添加限制结果数量
+ * 
  * @example
  * type Test = Split<'xxx_xxx', '_'>
  * >>> ['xxx', 'xxx']

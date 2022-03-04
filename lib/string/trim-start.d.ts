@@ -8,6 +8,11 @@
  * 
  * 实现思路：直接使用类型推断进行类型分配判断
  * 
+ * 
+ * @param { string } Str - 要处理的字符串
+ * @param { string } Chars - 要移除的字符
+ * @return { string } 处理后的字符串
+ * 
  * @example
  * type Test = TrimStart<' abc '>
  * >>> "abc "
