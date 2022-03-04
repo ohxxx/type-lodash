@@ -194,7 +194,7 @@
 
 ## Math
 
-- [ ] Add
+- [ ] **Add** 两数相加（1000以内）
 - [ ] Ceil
 - [ ] Divide
 - [ ] Floor
