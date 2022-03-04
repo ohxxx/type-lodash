@@ -1,15 +1,18 @@
-import { expectType } from 'tsd'
+import { expectError, expectType } from 'tsd'
 import type { Trim } from '../../lib/string/trim'
 
-declare function trimStart<
+declare function trim<
   Str extends string,
   Chars extends string = ' '
 >(str: Str, chars?: Chars): Trim<Str, Chars>
 
-expectType<'abc'>(trimStart('abc'))
-expectType<'abc'>(trimStart('  abc  '))
-expectType<'_abc_'>(trimStart(' _abc_ '))
-expectType<'bcb'>(trimStart('aabcbaa', 'a'))
-expectType<'ab'>(trimStart('cabc', 'c'))
-expectType<''>(trimStart('-_-abc-_-', '-_-abc-_-'))
-expectType<'abc'>(trimStart('-_-abc-_-', '-_-'))
+expectType<'abc'>(trim('abc'))
+expectType<'abc'>(trim('  abc  '))
+expectType<'_abc_'>(trim(' _abc_ '))
+expectType<'bcb'>(trim('aabcbaa', 'a'))
+expectType<'ab'>(trim('cabc', 'c'))
+expectType<''>(trim('-_-abc-_-', '-_-abc-_-'))
+expectType<'abc'>(trim('-_-abc-_-', '-_-'))
+
+expectError(trim())
+expectError(trim(666, 6))

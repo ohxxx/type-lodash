@@ -1,4 +1,4 @@
-import { expectType } from 'tsd'
+import { expectError, expectType } from 'tsd'
 import type { Split } from '../../lib/string/split'
 
 declare function split<
@@ -14,3 +14,8 @@ expectType<['', 'x', '_', 'x', 'x']>(split('-x-_-x-x', '-'))
 expectType<['', '']>(split('_', '_')) 
 expectType<['']>(split('', ' ')) 
 expectType<[]>(split('', '')) 
+
+
+expectError(split())
+expectError(split(123, 2))
+expectError(split('123'))

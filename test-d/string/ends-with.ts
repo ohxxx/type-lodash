@@ -1,4 +1,4 @@
-import { expectType } from 'tsd';
+import { expectType, expectError } from 'tsd';
 import type { EndsWith } from '../../lib/string/ends-with'
 import type { Split } from '../../lib/string/split';
 
@@ -13,3 +13,7 @@ expectType<false>(endsWith('abc', 'b'))
 expectType<false>(endsWith('abc', 'b', 1))
 expectType<true>(endsWith('abc', 'a', 1))
 expectType<false>(endsWith('abc', 'b', -1))
+
+expectError(endsWith())
+expectError(endsWith(123, 2, 1))
+expectError(endsWith('123', 2, 1))

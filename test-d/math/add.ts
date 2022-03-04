@@ -9,4 +9,5 @@ declare function add<
 
 expectType<3>(add(1, 2))
 expectType<300>(add(100, 200))
+
 expectError(add(1, '2'))

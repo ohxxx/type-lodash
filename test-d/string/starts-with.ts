@@ -1,4 +1,4 @@
-import { expectType } from 'tsd'
+import { expectError, expectType } from 'tsd'
 import type { StartsWith } from '../../lib/string/starts-with'
 
 
@@ -13,3 +13,7 @@ expectType<false>(startsWith('abc', 'b'))
 expectType<true>(startsWith('abc', 'b', 1))
 expectType<false>(startsWith('abc', 'b', 1.2))
 expectType<false>(startsWith('abc', 'b', -1))
+
+expectError(startsWith())
+expectError(startsWith(123, 2))
+expectError(startsWith('123', 2, 1))
