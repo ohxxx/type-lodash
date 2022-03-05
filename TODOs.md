@@ -204,7 +204,7 @@
 - [ ] MeanBy
 - [ ] Min
 - [ ] MinBy
-- [ ] Multiply
+- [x] **Multiply** 两数相乘
 - [ ] Round
 - [x] **Subtract** 两数相减（1000 以内）
 - [ ] Sum
