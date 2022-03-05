@@ -1,15 +1,9 @@
+import type { BuildArray } from "../helpers/build-array";
 /**
  * [第一步]: 构建指定长度的数组
  * 
- * @example
- * type Test = BuildArray<6>
- * >>> [unknown, unknown, unknown, unknown, unknown, unknown]
+ * 直接使用类型工具 buildArray 生成指定长度的数组
  */
-type BuildArray<
-  Len extends number,
-  Arr extends unknown[] = []
-> = 
-  Arr['length'] extends Len ? Arr : BuildArray<Len, [...Arr, unknown]>
 
 
 
