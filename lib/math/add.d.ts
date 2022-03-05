@@ -2,9 +2,8 @@ import type { BuildArray } from "../helpers/build-array";
 /**
  * [第一步]: 构建指定长度的数组
  * 
- * 直接使用类型工具 buildArray 生成指定长度的数组
+ * 直接使用类型工具 BuildArray 生成指定长度的数组
  */
-
 
 
 /**

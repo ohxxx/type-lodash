@@ -1,5 +1,5 @@
 import { expectError, expectType } from 'tsd';
-import type { BuildArray } from '../../lib/math/add';
+import type { BuildArray } from '../../lib/helpers/build-array';
 
 declare function buildArray<Len extends number>(len: Len): BuildArray<Len>
 

@@ -206,7 +206,7 @@
 - [ ] MinBy
 - [ ] Multiply
 - [ ] Round
-- [ ] Subtract
+- [x] **Subtract** 两数相减（1000 以内）
 - [ ] Sum
 - [ ] SumBy
 
