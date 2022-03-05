@@ -1,6 +1,13 @@
 import type { BuildArray } from "../helpers/build-array"
 import type { Subtract } from "./subtract"
 /**
+ * [第一步]: 生成指定长度的数组
+ * 
+ * 直接使用类型工具 BuildArray 生成指定长度的数组
+ */
+
+
+/**
  * [最后]: 两数相乘
  * 
  * 实现思路：其实就是一个数的几次整体叠加

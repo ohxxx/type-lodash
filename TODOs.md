@@ -196,7 +196,7 @@
 
 - [x] **Add** 两数相加（1000 以内）
 - [ ] Ceil
-- [ ] Divide
+- [x] **Divide** 两数相除
 - [ ] Floor
 - [ ] Max
 - [ ] MaxBy
