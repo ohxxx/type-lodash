@@ -1,5 +1,4 @@
 import type { Add } from "../math/add"
-
 /**
  * 切片元组，去除元组前面 N 个元素
  * 
