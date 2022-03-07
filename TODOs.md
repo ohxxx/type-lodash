@@ -31,7 +31,6 @@
 - [ ] IntersectionBy
 - [ ] IntersectionWith
 - [ ] Join
-- [ ] Last
 - [ ] LastIndexOf
 - [ ] Nth
 - [ ] Pull
