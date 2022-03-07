@@ -144,21 +144,14 @@
 - [ ] Gt
 - [ ] Gte
 - [ ] IsArguments
-- [x] **IsAny** 检查是否为 any 类型
-- [x] **IsArray** 检查是否为 Array 类型
 - [ ] IsArrayBuffer
 - [ ] IsArrayLike
 - [ ] IsArrayLikeObject
-- [x] **IsBoolean** 检查是否是为 boolean 类型
 - [ ] IsBuffer
-- [x] **IsDate** 检查是否为 Date 类型
 - [ ] IsElement
 - [ ] IsEmpty
-- [x] **IsEqual** 检查类型是否相等
 - [ ] IsEqualWith
-- [x] **IsError** 检查是否为 Error 类型
 - [ ] IsFinite
-- [x] **IsFunction** 检查是否为 Function 类型
 - [ ] IsInteger
 - [ ] IsLength
 - [ ] IsMap
@@ -167,20 +160,13 @@
 - [ ] IsNaN
 - [ ] IsNative
 - [ ] IsNil
-- [x] **IsNull** 检查是否为 null
-- [x] **IsNumber** 检查是否为 number 类型
-- [x] **IsObject** 检查是否为 Object 类型
 - [ ] IsObjectLike
 - [ ] IsPlainObject
 - [ ] IsRegExp
 - [ ] IsSafeInteger
-- [x] **IsSet** 检查是否为 set 类型
-- [x] **IsString** 检查是否为 string 类型
 - [ ] IsSymbol
 - [ ] IsTypedArray
-- [x] **IsUndefined** 检查是否为 undefined
 - [ ] IsWeakMap
-- [x] **IsWeakSet** 检查是否为 weakset 类型
 - [ ] Lt
 - [ ] Lte
 - [ ] ToArray
@@ -194,19 +180,14 @@
 
 ## Math
 
-- [x] **Add** 两数相加（1000 以内）
 - [ ] Ceil
-- [x] **Divide** 两数相除
 - [ ] Floor
 - [ ] Max
 - [ ] MaxBy
-- [x] **Mean** 计算数组的平均值
 - [ ] MeanBy
 - [ ] Min
 - [ ] MinBy
-- [x] **Multiply** 两数相乘
 - [ ] Round
-- [x] **Subtract** 两数相减（1000 以内）
 - [ ] Sum
 - [ ] SumBy
 
@@ -275,9 +256,7 @@
 ## String
 
 - [ ] CamelCase
-- [x] **Capitalize** 字符串首字母大写，其余小写
 - [ ] Deburr
-- [x] **EndsWith** 判断字符串是否以指定字符结尾
 - [ ] Escape
 - [ ] EscapeRegExp
 - [ ] KebabCase
@@ -290,15 +269,8 @@
 - [ ] Repeat
 - [ ] Replace
 - [ ] SnakeCase
-- [x] **Split** 按分隔符拆分字符串
 - [ ] StartCase
-- [x] **StartsWith** 判断字符串是否以指定字符开头
 - [ ] Template
-- [x] **ToLower** 转换整个字符串的字符为小写
-- [x] **ToUpper** 转换整个字符串的字符为大写
-- [x] **Trim** 移除前面和后面的空格或者指定字符
-- [x] **TrimEnd** 移除后面的空格或者指定字符
-- [x] **TrimStart** 移除前面的空格或者指定字符
 - [ ] Truncate
 - [ ] Unescape
 - [ ] UpperCase
