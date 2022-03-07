@@ -13,7 +13,6 @@
 - [ ] Difference
 - [ ] DifferenceBy
 - [ ] DifferenceWith
-- [ ] Drop
 - [ ] DropRight
 - [ ] DropRightWhile
 - [ ] DropWhile

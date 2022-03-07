@@ -9,6 +9,7 @@
 - **Compact** 返回一个非假值的元组
 - **Last** 返回元组最后一个元素
 - **Reverse** 反转元组
+- **Drop** 切片元组，去除元组前面 N 个元素
 
 ### Collection
 
