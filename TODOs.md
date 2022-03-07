@@ -9,7 +9,6 @@
 ## Array
 
 - [ ] Chunk
-- [ ] Compact
 - [ ] Concat
 - [ ] Difference
 - [ ] DifferenceBy

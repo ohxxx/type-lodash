@@ -6,6 +6,8 @@
 
 ### Array
 
+- **Compact** 返回一个非假值的元组
+
 ### Collection
 
 ### Date
