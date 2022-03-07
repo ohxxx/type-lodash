@@ -39,7 +39,6 @@
 - [ ] PullAllWith
 - [ ] PullAt
 - [ ] Remove
-- [ ] Reverse
 - [ ] Slice
 - [ ] SortedIndex
 - [ ] SortedIndexBy

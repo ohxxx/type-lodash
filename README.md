@@ -8,6 +8,7 @@
 
 - **Compact** 返回一个非假值的元组
 - **Last** 返回元组最后一个元素
+- **Reverse** 反转元组
 
 ### Collection
 
