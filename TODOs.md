@@ -44,7 +44,6 @@
 - [ ] SortedLastIndexOf
 - [ ] SortedUniq
 - [ ] SortedUniqBy
-- [ ] Tail
 - [ ] Take
 - [ ] TakeRight
 - [ ] TakeRightWhile
