@@ -18,7 +18,6 @@
 - [ ] Fill
 - [ ] FindIndex
 - [ ] FindLastIndex
-- [ ] Head
 - [ ] Flatten
 - [ ] FlattenDeep
 - [ ] FlattenDepth
