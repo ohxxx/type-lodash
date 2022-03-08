@@ -23,7 +23,6 @@
 - [ ] FlattenDepth
 - [ ] FromPairs
 - [ ] IndexOf
-- [ ] Initial
 - [ ] Intersection
 - [ ] IntersectionBy
 - [ ] IntersectionWith
