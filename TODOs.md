@@ -253,7 +253,6 @@
 - [ ] EscapeRegExp
 - [ ] KebabCase
 - [ ] LowerCase
-- [ ] LowerFirst
 - [ ] Pad
 - [ ] PadEnd
 - [ ] PadStart
