@@ -66,5 +66,6 @@
 - **TrimStart** 移除前面的空格或者指定字符
 - **LowerFirst** 将字符串的第一个字符转换为小写
 - **UpperFirst** 将字符串的第一个字符转换为大写
+- **Repeat** 重复给定的字符串 n 次
 
 ### Util

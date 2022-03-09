@@ -256,7 +256,6 @@
 - [ ] PadEnd
 - [ ] PadStart
 - [ ] ParseInt
-- [ ] Repeat
 - [ ] Replace
 - [ ] SnakeCase
 - [ ] StartCase
