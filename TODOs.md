@@ -265,7 +265,6 @@
 - [ ] Truncate
 - [ ] Unescape
 - [ ] UpperCase
-- [ ] UpperFirst
 - [ ] Words
 
 ## Util
