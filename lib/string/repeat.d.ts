@@ -9,7 +9,7 @@ import type { Subtract } from '../math/subtract'
  * 
  * @param { string } Str - 要重复的字符串
  * @param { number } N - 重复字符串的次数（默认为 1 ）
- * @param { string } Result - 结果字符串（内部递归使用）
+ * @param { string } _Result - 结果字符串（内部递归使用）
  *  
  * @example
  * type Test = Repeat<'*', 3>
@@ -18,8 +18,8 @@ import type { Subtract } from '../math/subtract'
 export type Repeat<
   Str extends string = '',
   N extends number = 1,
-  Result extends string = ''
+  _Result extends string = ''
 > = 
   N extends 0
-    ? Result
-    : Repeat<Str, Subtract<N, 1>, `${Result}${Str}`>
+    ? _Result
+    : Repeat<Str, Subtract<N, 1>, `${_Result}${Str}`>

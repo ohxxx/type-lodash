@@ -16,7 +16,7 @@
  * 
  * 
  * @param { unknown[] } Arr - 当前元组
- * @param { unknown[] } Result - 非假值元组（内部递归使用）
+ * @param { unknown[] } _Result - 非假值元组（内部递归使用）
  * @return { unknown[] } 最后的结果元组
  * 
  * @example
@@ -27,12 +27,12 @@ type Falsey = false | null | 0 | "" | undefined;
 
 export type Compact<
   Arr extends unknown[],
-  Result extends unknown[] = []
+  _Result extends unknown[] = []
 > = 
   Arr['length'] extends 0
-    ? Result
+    ? _Result
     : Arr extends [infer First, ...infer Rest]
       ? First extends Falsey
-        ? Compact<Rest, Result>
-        : Compact<Rest, [...Result, First]>
-      : Result
+        ? Compact<Rest, _Result>
+        : Compact<Rest, [..._Result, First]>
+      : _Result

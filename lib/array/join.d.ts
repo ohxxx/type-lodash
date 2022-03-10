@@ -10,7 +10,7 @@ import type { Drop } from './drop'
  * 
  * @param { number[] } Arr - 需要处理的元组
  * @param { string } Separator - 元素分隔符
- * @param { string } Result - 临时结果字符串（内部使用）
+ * @param { string } _Result - 临时结果字符串（内部使用）
  * @return { number } 最后的平均值
  * 
  * @example
@@ -20,14 +20,14 @@ import type { Drop } from './drop'
 export type Join<
   Arr extends any[],
   Separator extends string = ',',
-  Result extends string = ''
+  _Result extends string = ''
 > =
   Arr extends []
-    ? Result
+    ? _Result
     : Join<
         Drop<Arr>,
         Separator,
-        Result extends ''
-          ? `${Result}${Arr[0]}` 
-          : `${Result}${Separator}${Arr[0]}`
+        _Result extends ''
+          ? `${_Result}${Arr[0]}` 
+          : `${_Result}${Separator}${Arr[0]}`
       >

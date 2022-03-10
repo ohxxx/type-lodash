@@ -12,6 +12,6 @@
  * >>> [2, 3]
  */
 export type Tail<Arr extends unknown[]> = 
-  Arr extends [infer First, ...infer Other]
+  Arr extends [infer _First, ...infer Other]
     ? Other
     : []

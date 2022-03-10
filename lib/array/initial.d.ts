@@ -12,7 +12,7 @@
  * >>> [1, 2]
  */
 export type Initial<Arr extends unknown[]> = 
-  Arr extends [...infer Other, infer Last]
+  Arr extends [...infer Other, infer _Last]
     ? Other
     : []
 

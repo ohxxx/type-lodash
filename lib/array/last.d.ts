@@ -13,6 +13,6 @@
  * >>> 3
  */
 export type Last<Arr extends unknown[]> = 
-  Arr extends [...infer Other, infer Last]
+  Arr extends [...infer _Other, infer Last]
     ? Last
     : undefined

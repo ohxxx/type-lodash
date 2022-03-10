@@ -13,6 +13,6 @@
  * >>> 1
  */
 export type Head<Arr extends unknown[]> = 
-  Arr extends [infer First, ...infer Rest]
+  Arr extends [infer First, ...infer _Rest]
     ? First
     : undefined

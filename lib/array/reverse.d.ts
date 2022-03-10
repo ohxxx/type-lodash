@@ -10,8 +10,9 @@ import { Add } from "../math/add"
  * 
  * 
  * @param { unknown[] } Arr - 当前元组
- * @param { number } Index - 当前索引（内部递归使用）
- * @param { unknown[] } 当前结果值（内部递归使用）
+ * @param { number } _Index - 当前索引（内部递归使用）
+ * @param { unknown[] } _Result - 当前结果值（内部递归使用）
+ * @return { unknown[] } 反转后的元组
  * 
  * @example
  * type Test = Reverse<[1, 2, 3, '4', '5']>
@@ -19,9 +20,9 @@ import { Add } from "../math/add"
  */
 export type Reverse<
   Arr extends unknown[],
-  Index extends number = 0,
-  Result extends unknown[] = []
+  _Index extends number = 0,
+  _Result extends unknown[] = []
 > = 
-  Result['length'] extends Arr['length']
-    ? Result
-    : Reverse<Arr, (Add<Index, 1> & number), [Arr[Index], ...Result]>
+  _Result['length'] extends Arr['length']
+    ? _Result
+    : Reverse<Arr, (Add<_Index, 1> & number), [Arr[_Index], ..._Result]>

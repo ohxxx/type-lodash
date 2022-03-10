@@ -3,7 +3,7 @@
  * 主要用于数学操作、获取字符串长度等
  * 
  * @param { number } Len - 需要构建数组的长度
- * @param { unknown[] } Arr - 暂存的数组（仅内部使用）
+ * @param { unknown[] } _Arr - 暂存的数组（仅内部使用）
  * @return { unknown[] } 构建后的的数组
  * 
  * @example
@@ -12,5 +12,5 @@
  */
 export type BuildArray<
   Len extends number,
-  Arr extends unknown[] = []
-> = Arr['length'] extends Len ? Arr : BuildArray<Len, [...Arr, unknown]>
+  _Arr extends unknown[] = []
+> = _Arr['length'] extends Len ? _Arr : BuildArray<Len, [..._Arr, unknown]>

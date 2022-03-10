@@ -19,7 +19,7 @@ import type { Subtract } from "./subtract"
  * 
  * @param { number } Multiplier - 乘数
  * @param { number } Multiplicand - 被乘数
- * @param { unknown[] } Result - 操作结果数组（内部使用）
+ * @param { unknown[] } _Result - 操作结果数组（内部使用）
  * @return { number } 两数相乘的结果 
  * 
  * @todo:
@@ -35,8 +35,8 @@ import type { Subtract } from "./subtract"
 export type Multiply<
   Multiplier extends number,
   Multiplicand extends number,
-  Result extends unknown[] = []
+  _Result extends unknown[] = []
 > = 
   Multiplicand extends 0
-    ? Result['length']
-    : Multiply<Multiplier, Subtract<Multiplicand, 1>, [...BuildArray<Multiplier>, ...Result]>
+    ? _Result['length']
+    : Multiply<Multiplier, Subtract<Multiplicand, 1>, [...BuildArray<Multiplier>, ..._Result]>

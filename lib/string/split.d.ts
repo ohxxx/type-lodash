@@ -38,7 +38,7 @@ export type BuildStringArray<Arr extends string[], Item extends string> = [...Ar
  * 
  * @param {} Str - 需要拆分的字符串
  * @param {} Delimiter - 拆分的分隔符（默认为空字符串）
- * @param {} Result - 最后拆分后的数组（内部函数使用）
+ * @param {} _Result - 最后拆分后的数组（内部函数使用）
  * @return { string[] } 最后拆分后的结果
  * 
  * @todo: 添加限制结果数量
@@ -50,10 +50,10 @@ export type BuildStringArray<Arr extends string[], Item extends string> = [...Ar
 export type Split<
   Str extends string,
   Delimiter extends string = '',
-  Result extends string[] = []
+  _Result extends string[] = []
 > = 
   Str extends `${infer First}${Delimiter}${infer Rest}`
-    ? Split<Rest, Delimiter, BuildStringArray<Result, First>>
+    ? Split<Rest, Delimiter, BuildStringArray<_Result, First>>
     : Str extends Delimiter
-      ? Result
-      : BuildStringArray<Result, Str>
+      ? _Result
+      : BuildStringArray<_Result, Str>

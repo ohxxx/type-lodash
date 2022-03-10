@@ -21,7 +21,7 @@ import type { Subtract } from "./subtract"
  * 
  * @param { number } Dividend - 被除数
  * @param { number } Divisor - 除数
- * @param { unknown[] } Result - 操作结果数组（内部使用）
+ * @param { unknown[] } _Result - 操作结果数组（内部使用）
  * @return { number } 两数相除的结果 
  * 
  * @todo:
@@ -37,8 +37,8 @@ import type { Subtract } from "./subtract"
 export type Divide<
   Dividend extends number,
   Divisor extends number,
-  Result extends unknown[] = []
+  _Result extends unknown[] = []
 > =
   Dividend extends 0
-    ? Result['length']
-    : Divide<Subtract<Dividend, Divisor>, Divisor, [unknown, ...Result]>
+    ? _Result['length']
+    : Divide<Subtract<Dividend, Divisor>, Divisor, [unknown, ..._Result]>
