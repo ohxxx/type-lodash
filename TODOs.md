@@ -252,7 +252,6 @@
 - [ ] KebabCase
 - [ ] LowerCase
 - [ ] Pad
-- [ ] PadEnd
 - [ ] ParseInt
 - [ ] SnakeCase
 - [ ] StartCase

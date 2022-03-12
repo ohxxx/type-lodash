@@ -19,7 +19,7 @@ import type { Split } from "./split"
  * @return { string } 填充后的字符串
  * 
  * @todo：
- *    1、Chars中进行拆分填充：
+ *    1、Chars截断处理：
  *      如：type Test = PadStart<'abc', 6, '-_'>
  *         >>> "-_-abc"
  * 
