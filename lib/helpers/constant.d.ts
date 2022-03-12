@@ -11,7 +11,7 @@ export type EnglishChars = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' |
 export type HTMLEntityChars = {
   "&": "&amp;"
   "<": "&lt;"
-  ">": "&amp;"
-  "'": "&apos;"
-  '"': "&quot;"
+  ">": "&gt;"
+  '"': "&quot;",
+  "'": "&apos;" // &#39;
 }
