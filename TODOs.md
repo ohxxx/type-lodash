@@ -253,7 +253,6 @@
 - [ ] LowerCase
 - [ ] Pad
 - [ ] PadEnd
-- [ ] PadStart
 - [ ] ParseInt
 - [ ] SnakeCase
 - [ ] StartCase
