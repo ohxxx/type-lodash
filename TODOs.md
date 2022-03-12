@@ -248,7 +248,6 @@
 
 - [ ] CamelCase
 - [ ] Deburr
-- [ ] Escape
 - [ ] EscapeRegExp
 - [ ] KebabCase
 - [ ] LowerCase
