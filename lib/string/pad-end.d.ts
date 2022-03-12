@@ -12,6 +12,7 @@ import type { Split } from "./split"
  * @param { string } Str - 要填充的字符串
  * @param { string } Len - 填充长度（默认为0）
  * @param { string } Chars - 用作填充的字符串（默认是空字符串）
+ * @param { unknown[] } _Arr - 字符串元组（内部暂存数据使用）
  * @return { string } 填充后的字符串
  * 
  * @todo：

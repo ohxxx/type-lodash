@@ -251,7 +251,6 @@
 - [ ] EscapeRegExp
 - [ ] KebabCase
 - [ ] LowerCase
-- [ ] Pad
 - [ ] ParseInt
 - [ ] SnakeCase
 - [ ] StartCase
