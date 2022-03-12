@@ -10,7 +10,6 @@ export type EnglishChars = LowercaseChars | UppercaseChars
  */
 export type LowercaseChars = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' 
 
-
 /**
  * 大写英文字符
  */

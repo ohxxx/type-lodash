@@ -256,7 +256,6 @@
 - [ ] StartCase
 - [ ] Template
 - [ ] Truncate
-- [ ] Unescape
 - [ ] UpperCase
 - [ ] Words
 
