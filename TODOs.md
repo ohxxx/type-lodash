@@ -179,7 +179,6 @@
 - [ ] Min
 - [ ] MinBy
 - [ ] Round
-- [ ] Sum
 - [ ] SumBy
 
 ## Number
