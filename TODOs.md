@@ -156,7 +156,6 @@
 - [ ] IsSafeInteger
 - [ ] IsSymbol
 - [ ] IsTypedArray
-- [ ] IsWeakMap
 - [ ] Lt
 - [ ] Lte
 - [ ] ToArray

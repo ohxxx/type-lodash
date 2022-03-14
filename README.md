@@ -40,6 +40,7 @@
 - **IsUndefined** 检查是否为 undefined
 - **IsWeakSet** 检查是否为 weakset 类型
 - **IsMap** 检查是否为 map 类型
+- **IsWeakMap** 检查是否为 weakMap 类型
 
 
 ### Math
