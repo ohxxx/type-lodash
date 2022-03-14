@@ -39,6 +39,8 @@
 - **IsString** 检查是否为 string 类型
 - **IsUndefined** 检查是否为 undefined
 - **IsWeakSet** 检查是否为 weakset 类型
+- **IsMap** 检查是否为 map 类型
+
 
 ### Math
 

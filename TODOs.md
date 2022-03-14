@@ -145,7 +145,6 @@
 - [ ] IsFinite
 - [ ] IsInteger
 - [ ] IsLength
-- [ ] IsMap
 - [ ] IsMatch
 - [ ] IsMatchWith
 - [ ] IsNaN
