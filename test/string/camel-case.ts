@@ -5,7 +5,7 @@ declare function camelCase<Str extends string>(str: Str): CamelCase<Str>
 
 expectType<''>(camelCase(''))
 expectType<''>(camelCase('-----'))
-expectType<'（996ICU）'>(camelCase('- _ & * ( * @ % ()（996ICU）'))
+expectType<'（996Icu）'>(camelCase('- _ & * ( * @ % ()（996ICU）'))
 expectType<''>(camelCase('-----'))
 expectType<'fooBar'>(camelCase('Foo Bar'))
 expectType<'fooBar'>(camelCase('--foo-bar--'))
