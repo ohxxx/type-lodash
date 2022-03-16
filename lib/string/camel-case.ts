@@ -104,16 +104,6 @@ type MatchAllLowercase<
   : false
 
 /**
- * 小写 + 大写
- */
-type MatchLowerUpper<
-  LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${LowercaseChars}${UppercaseChars}` 
-  ? true
-  : false
-
-/**
  * 其他字符
  */
 type OtherSymbol<Str extends string> =
@@ -137,6 +127,39 @@ type MatchUppercaseOther<
 
 
 /**
+ * 公共方法：第一位转小写，后面继续递归
+ */
+type FirstToLower<
+  LeftStr extends string,
+  RightStr extends string
+> =
+  MatchAllUpperCase<LeftStr, RightStr> extends false
+    ? MatchEnglishSymbol<LeftStr, RightStr> extends false
+      ? MatchEnglishNumber<LeftStr, RightStr> extends false
+        ? MatchUppercaseOther<LeftStr, RightStr> extends false
+          ? false
+          : true
+        : true
+      : true
+    : true
+
+
+/**
+ * 公共方法：第一位不做任何操作，后面继续递归
+ */
+type ContinueRecursion<
+  LeftStr extends string,
+  RightStr extends string
+> =
+  MatchAllNumber<LeftStr, RightStr> extends false
+    ? MatchAllLowercase<LeftStr, RightStr> extends false
+      ? MatchNumberSymbol<LeftStr, RightStr> extends false
+        ? false
+        : true
+      : true
+    : true
+  
+/**
  * 将字符串转换为驼峰式大小写
  * 
  * 看了一下 lodash 的实现：replace + reduce
@@ -155,8 +178,7 @@ type MatchUppercaseOther<
  *    8、数字 + 数字
  *    9、大写英文 + 大写英文
  *    10、小写英文 + 小写英文
- *    11、小写英文 + 大写英文
- *    12、大写英文 + 其他
+ *    11、大写英文 + 其他
  * 
  * 
  * 实现思路：（整体思路如上述）
@@ -167,29 +189,17 @@ type _CamelCase<Str extends string> =
   Str extends `${infer First}${infer Second}${infer Rest}`
     ? MatchAllASCIISymbol<First, Second> extends true
       ? _CamelCase<Rest>
-      : MatchAllNumber<First, Second> extends true
+      : ContinueRecursion<First, Second> extends true
         ? `${First}${_CamelCase<`${Second}${Rest}`>}`
-        : MatchAllUpperCase<First, Second> extends true
+        : FirstToLower<First, Second> extends true
           ? `${ToLower<First>}${_CamelCase<`${Second}${Rest}`>}`
-          : MatchAllLowercase<First, Second> extends true
-            ? `${First}${_CamelCase<`${Second}${Rest}`>}`
-            : MatchSymbolEnglish<First, Second> extends true
-              ? `${ToUpper<Second>}${_CamelCase<Rest>}`
-              : MatchSymbolNumber<First, Second> extends true
-                ? `${_CamelCase<`${Second}${Rest}`>}`
-                : MatchEnglishSymbol<First, Second> extends true
-                  ? `${ToLower<First>}${_CamelCase<`${Second}${Rest}`>}`
-                  : MatchNumberSymbol<First, Second> extends true
-                    ? `${First}${_CamelCase<`${Second}${Rest}`>}`
-                    : MatchNumberEnglish<First, Second> extends true
-                      ? `${First}${ToUpper<Second>}${_CamelCase<`${Rest}`>}`
-                      : MatchEnglishNumber<First, Second> extends true
-                        ? `${ToLower<First>}${_CamelCase<`${Second}${Rest}`>}`
-                        : MatchLowerUpper<First, Second> extends true
-                          ? `${First}${Second}${_CamelCase<`${Rest}`>}`
-                          : MatchUppercaseOther<First, Second> extends true
-                            ? `${ToLower<First>}${_CamelCase<`${Second}${Rest}`>}`
-                            : `${First}${Second}${_CamelCase<Rest>}`
+          : MatchSymbolEnglish<First, Second> extends true
+            ? `${ToUpper<Second>}${_CamelCase<Rest>}`
+            : MatchSymbolNumber<First, Second> extends true
+              ? `${_CamelCase<`${Second}${Rest}`>}`
+              : MatchNumberEnglish<First, Second> extends true
+                ? `${First}${ToUpper<Second>}${_CamelCase<`${Rest}`>}`
+                : `${First}${Second}${_CamelCase<Rest>}`
     : Str extends ASCIISymbol
       ? ''
       : Str extends UppercaseChars
