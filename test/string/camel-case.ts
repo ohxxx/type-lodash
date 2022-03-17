@@ -14,7 +14,7 @@ expectType<'aaBbCc'>(camelCase('AaBbCc'))
 expectType<'ab2C'>(camelCase('AB2C'))
 expectType<'（996Icu）'>(camelCase('- _ & * ( * @ % ()（996ICU）'))
 expectType<'（（996？i？cU））'>(camelCase('-（（996？I？C?U））-'))
-expectType<'（6）'>(camelCase('-_（—-6--）_-'))
+expectType<'（6）'>(camelCase('-_（--6--）_-'))
 
 
 /**
