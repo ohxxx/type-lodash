@@ -3,105 +3,40 @@ import type { LowerFirst } from "./lower-first";
 import type { ToLower } from "./to-lower";
 import type { ToUpper } from "./to-upper";
 /**
- * 符号 + 符号
+ * 常规类型合集
  */
-type MatchAllASCIISymbol<
-  LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${ASCIISymbol}${ASCIISymbol}`
-  ? true
-  : false
+type Types = {
+  // 符号 + 符号
+  'allASCIISymbol': `${ASCIISymbol}${ASCIISymbol}`
+  // 符号 + 英文
+  'symbolEnglish': `${ASCIISymbol}${EnglishChars}`
+  // 符号 + 数字
+  'symbolNumber': `${ASCIISymbol}${ArabicFigures}`
+  // 英文 + 符号
+  'englishSymbol': `${EnglishChars}${ASCIISymbol}`
+  // 数字 + 符号
+  'numberSymbol': `${ArabicFigures}${ASCIISymbol}`
+  // 数字 + 英文
+  'numberEnglish': `${ArabicFigures}${EnglishChars}` 
+  // 英文 + 数字
+  'englishNumber': `${EnglishChars}${ArabicFigures}`
+  // 数字 + 数字
+  'allNumber': `${ArabicFigures}${ArabicFigures}`
+  // 大写 + 大写
+  'allUppercase': `${UppercaseChars}${UppercaseChars}` 
+  // 小写 + 小写
+  'allLowercase': `${LowercaseChars}${LowercaseChars}`
+}
 
 /**
- * 符号 + 英文
+ * 匹配常规类型
  */
-type MatchSymbolEnglish<
+type MatchRegularType<
   LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${ASCIISymbol}${EnglishChars}`
-  ? true
-  : false
-
-/**
- * 符号 + 数字
- */
-type MatchSymbolNumber<
-  LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${ASCIISymbol}${ArabicFigures}`
-  ? true
-  : false
-
-/**
- * 英文 + 符号
- */
-type MatchEnglishSymbol<
-  LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${EnglishChars}${ASCIISymbol}`
-  ? true
-  : false
-
-/**
- * 数字 + 符号
- */
-type MatchNumberSymbol<
-  LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${ArabicFigures}${ASCIISymbol}`
-  ? true
-  : false
-
-/**
- * 数字 + 英文
- */
-type MatchNumberEnglish<
-  LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${ArabicFigures}${EnglishChars}` 
-  ? true
-  : false
-
-/**
- * 英文 + 数字
- */
-type MatchEnglishNumber<
-  LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${EnglishChars}${ArabicFigures}` 
-  ? true
-  : false
-
-/**
- * 数字 + 数字
- */
-type MatchAllNumber<
-  LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${ArabicFigures}${ArabicFigures}` 
-  ? true
-  : false
-
-
-/**
- * 大写 + 大写
- */
-type MatchAllUpperCase<
-  LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${UppercaseChars}${UppercaseChars}` 
-  ? true
-  : false
-
-/**
- * 小写 + 小写
- */
-type MatchAllLowercase<
-  LeftStr extends string,
-  RightStr extends string
-> = `${LeftStr}${RightStr}` extends `${LowercaseChars}${LowercaseChars}` 
-  ? true
-  : false
+  RightStr extends string,
+  Key extends keyof Types
+> = `${LeftStr}${RightStr}` extends Types[Key] ? true : false
+  
 
 /**
  * 其他字符
@@ -115,8 +50,9 @@ type OtherSymbol<Str extends string> =
       ? false
       : true
 
+
 /**
- * 大写 + 其他（排除数字、英文、已知符号）
+ * 
  */
 type MatchUppercaseOther<
   LeftStr extends string,
@@ -133,9 +69,9 @@ type FirstToLower<
   LeftStr extends string,
   RightStr extends string
 > =
-  MatchAllUpperCase<LeftStr, RightStr> extends false
-    ? MatchEnglishSymbol<LeftStr, RightStr> extends false
-      ? MatchEnglishNumber<LeftStr, RightStr> extends false
+  MatchRegularType<LeftStr, RightStr, 'allUppercase'> extends false
+    ? MatchRegularType<LeftStr, RightStr, 'englishSymbol'> extends false
+      ? MatchRegularType<LeftStr, RightStr, 'englishNumber'> extends false
         ? MatchUppercaseOther<LeftStr, RightStr> extends false
           ? false
           : true
@@ -151,14 +87,15 @@ type ContinueRecursion<
   LeftStr extends string,
   RightStr extends string
 > =
-  MatchAllNumber<LeftStr, RightStr> extends false
-    ? MatchAllLowercase<LeftStr, RightStr> extends false
-      ? MatchNumberSymbol<LeftStr, RightStr> extends false
+  MatchRegularType<LeftStr, RightStr, 'allNumber'> extends false
+    ? MatchRegularType<LeftStr, RightStr, 'allLowercase'> extends false
+      ? MatchRegularType<LeftStr, RightStr, 'numberSymbol'> extends false
         ? false
         : true
       : true
     : true
   
+
 /**
  * 将字符串转换为驼峰式大小写
  * 
@@ -187,17 +124,17 @@ type ContinueRecursion<
  */
 type _CamelCase<Str extends string> =
   Str extends `${infer First}${infer Second}${infer Rest}`
-    ? MatchAllASCIISymbol<First, Second> extends true
+    ? MatchRegularType<First, Second, 'allASCIISymbol'> extends true
       ? _CamelCase<Rest>
       : ContinueRecursion<First, Second> extends true
         ? `${First}${_CamelCase<`${Second}${Rest}`>}`
         : FirstToLower<First, Second> extends true
           ? `${ToLower<First>}${_CamelCase<`${Second}${Rest}`>}`
-          : MatchSymbolEnglish<First, Second> extends true
+          : MatchRegularType<First, Second, 'symbolEnglish'> extends true
             ? `${ToUpper<Second>}${_CamelCase<Rest>}`
-            : MatchSymbolNumber<First, Second> extends true
+            : MatchRegularType<First, Second, 'symbolNumber'> extends true
               ? `${_CamelCase<`${Second}${Rest}`>}`
-              : MatchNumberEnglish<First, Second> extends true
+              : MatchRegularType<First, Second, 'numberEnglish'> extends true
                 ? `${First}${ToUpper<Second>}${_CamelCase<`${Rest}`>}`
                 : `${First}${Second}${_CamelCase<Rest>}`
     : Str extends ASCIISymbol
