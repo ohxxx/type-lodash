@@ -243,7 +243,6 @@
 
 ## String
 
-- [ ] CamelCase
 - [ ] Deburr
 - [ ] EscapeRegExp
 - [ ] KebabCase
