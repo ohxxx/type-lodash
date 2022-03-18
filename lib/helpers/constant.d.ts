@@ -35,3 +35,40 @@ export type ArabicFigures = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
  * ASCII符号
  */
 export type ASCIISymbol = ' ' | '!' | '"' | '#' | '$' | '%' | '&' | "'" | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' | '\\' | ']' | '^' | '_' | '`' | '{' | '}' | '|' | '~'
+
+
+/**
+ * 基础类型匹配
+ */
+export type BaseTypes = {
+  // 大写英文
+  'uppercase': `${UppercaseChars}`
+  // 符号
+  'symbol': `${ASCIISymbol}`
+}
+
+/**
+ * 常规类型合集
+ */
+export type CombinationTypes = {
+  // 符号 + 符号
+  'allSymbol': `${ASCIISymbol}${ASCIISymbol}`
+  // 数字 + 数字
+  'allNumber': `${ArabicFigures}${ArabicFigures}`
+  // 大写 + 大写
+  'allUppercase': `${UppercaseChars}${UppercaseChars}` 
+  // 小写 + 小写
+  'allLowercase': `${LowercaseChars}${LowercaseChars}`
+  // 符号 + 英文
+  'symbolEnglish': `${ASCIISymbol}${EnglishChars}`
+  // 符号 + 数字
+  'symbolNumber': `${ASCIISymbol}${ArabicFigures}`
+  // 英文 + 符号
+  'englishSymbol': `${EnglishChars}${ASCIISymbol}`
+  // 英文 + 数字
+  'englishNumber': `${EnglishChars}${ArabicFigures}`
+  // 数字 + 符号
+  'numberSymbol': `${ArabicFigures}${ASCIISymbol}`
+  // 数字 + 英文
+  'numberEnglish': `${ArabicFigures}${EnglishChars}` 
+}
