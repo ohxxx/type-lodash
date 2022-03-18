@@ -252,7 +252,6 @@
 - [ ] StartCase
 - [ ] Template
 - [ ] Truncate
-- [ ] UpperCase
 - [ ] Words
 
 ## Util

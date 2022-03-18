@@ -38,6 +38,11 @@ export type ASCIISymbol = ' ' | '!' | '"' | '#' | '$' | '%' | '&' | "'" | '(' | 
 
 
 /**
+ * 空格
+ */
+export type Space = ' '
+
+/**
  * 基础类型匹配
  */
 export type BaseTypes = {
@@ -71,4 +76,8 @@ export type CombinationTypes = {
   'numberSymbol': `${ArabicFigures}${ASCIISymbol}`
   // 数字 + 英文
   'numberEnglish': `${ArabicFigures}${EnglishChars}` 
+  // 小写 + 大写
+  'lowercaseUppercase': `${LowercaseChars}${UppercaseChars}`
+  // 大写 + 小写
+  'uppercaseLowercase': `${UppercaseChars}${LowercaseChars}`
 }

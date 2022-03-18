@@ -1,5 +1,5 @@
 import type { ASCIISymbol, UppercaseChars } from "../helpers/constant";
-import { MatchOtherLeft, MatchOtherRight, MatchRegularType } from "../helpers/match-type";
+import type { MatchOtherLeft, MatchOtherRight, MatchRegularType } from "../helpers/match-type";
 import type { LowerFirst } from "./lower-first";
 import type { ToLower } from "./to-lower";
 import type { ToUpper } from "./to-upper";
