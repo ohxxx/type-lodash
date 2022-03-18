@@ -13,9 +13,12 @@ expectType<'（ foo 6 a aaa 6 aa 6 bar ）'>(lowerCase('--（(Foo6aAaa6AA6Bar)�
 
 expectType<'aaaaaa'>(lowerCase('AAAAAA'))
 expectType<'aaaaaa'>(lowerCase('aaaaaa'))
+expectType<'aaaaaa'>(lowerCase('Aaaaaa'))
 expectType<'a aaaaa'>(lowerCase('AAaaaa'))
 expectType<'aa aaaa'>(lowerCase('AAAaaa'))
-expectType<'aaa aaa'>(lowerCase('AAAAAa'))
+expectType<'aaa aaa'>(lowerCase('AAAAaa'))
+expectType<'aaaa aa'>(lowerCase('AAAAAa'))
+expectType<'aaaa aa'>(lowerCase('AaaaaA'))
 expectType<'aaaa aa'>(lowerCase('AaaaAA'))
 expectType<'aaa aaa'>(lowerCase('AaaAAA'))
 expectType<'aa aaaa'>(lowerCase('AaAAAA'))
