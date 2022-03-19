@@ -246,7 +246,6 @@
 - [ ] Deburr
 - [ ] EscapeRegExp
 - [ ] ParseInt
-- [ ] SnakeCase
 - [ ] Template
 - [ ] Truncate
 - [ ] Words

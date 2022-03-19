@@ -83,8 +83,6 @@
 - **LowerCase** 将字符串（作为空格分隔的单词）转换为小写
 - **StartCase** 将字符串转换为起始大小写
 - **KebabCase** 将字符串转换为 kebab 大小写
-
-
-
+- **SnakeCase** 将字符串转换为蛇形大小写
 
 ### Util
