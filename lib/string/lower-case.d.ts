@@ -1,7 +1,7 @@
 import type { ASCIISymbol, LowercaseChars, Space, UppercaseChars } from '../helpers/constant'
 import type { MatchOtherLeft, MatchOtherRight, MatchRegularType } from '../helpers/match-type'
 import type { Split } from './split'
-import type { ToUpper } from './to-upper'
+import type { ToLower } from './to-lower'
 import type { TrimEnd } from './trim-end'
 /**
  * 过滤第二个字符
@@ -38,11 +38,11 @@ type SecondAddSpacesBA<
  *    3、AAA >>> AAA
  * 
  *    4、aaA >>> AA A
- *    5、aAA >>> AA A
- *    6、AaA >>> AA A
+ *    5、AaA >>> AA A
  * 
- *    7、aAa >>> A AA
- *    8、AAa >>> A AA
+ *    6、aAa >>> A AA
+ *    7、AAa >>> A AA
+ *    8、aAA >>> A AA
  */
 // type AAATypes = {
 //   'aaa': `${LowercaseChars}${LowercaseChars}${LowercaseChars}`
@@ -58,7 +58,6 @@ type SecondAddSpacesBA<
  */
 type AA_ATypes = {
   'aaA': `${LowercaseChars}${LowercaseChars}${UppercaseChars}`
-  'aAA': `${LowercaseChars}${UppercaseChars}${UppercaseChars}`
   'AaA': `${UppercaseChars}${LowercaseChars}${UppercaseChars}`
 }
 /**
@@ -75,6 +74,7 @@ type MatchConvertAA_A<First extends string, Second extends string, Third extends
 type A_AATypes = {
   'aAa': `${LowercaseChars}${UppercaseChars}${LowercaseChars}`
   'AAa': `${UppercaseChars}${UppercaseChars}${LowercaseChars}`
+  'aAA': `${LowercaseChars}${UppercaseChars}${UppercaseChars}`
 }
 /**
  * 将指定模式的字符转成 A_AA
@@ -88,25 +88,25 @@ type MatchConvertA_AA<First extends string, Second extends string, Third extends
 /**
  * 内部转换规则
  */
-type _UpperCase<Str extends string> = 
+type _LowerCase<Str extends string> = 
   Str extends `${infer First}${infer Second}${infer Rest}`
     ? MatchRegularType<First, Second, 'allSymbol'> extends true
-      ? `${_UpperCase<`${Rest}`>}`
+      ? `${_LowerCase<`${Rest}`>}`
       : MatchRegularType<First, Second, 'symbolEnglish'> extends true
-        ? `${Second}${_UpperCase<`${Rest}`>}`
+        ? `${Second}${_LowerCase<`${Rest}`>}`
         : FilterSecond<First, Second> extends true
-          ? `${First}${Space}${_UpperCase<`${Rest}`>}`
+          ? `${First}${Space}${_LowerCase<`${Rest}`>}`
           : MatchRegularType<First, Second, 'lowercaseUppercase'> extends true
-            ? `${First}${Space}${Second}${_UpperCase<`${Rest}`>}`
+            ? `${First}${Space}${Second}${_LowerCase<`${Rest}`>}`
             : MatchConvertA_AA<First, Second, Split<Rest>[0]> extends true
-              ? `${First}${Space}${_UpperCase<`${Second}${Rest}`>}`
+              ? `${First}${Space}${_LowerCase<`${Second}${Rest}`>}`
               : MatchConvertAA_A<First, Second, Split<Rest>[0]> extends true
-                ? `${First}${Second}${Space}${_UpperCase<`${Rest}`>}`
+                ? `${First}${Second}${Space}${_LowerCase<`${Rest}`>}`
                 : SecondAddSpacesBA<First, Second> extends true
-                  ? `${First}${Space}${Second}${Space}${_UpperCase<`${Rest}`>}`
+                  ? `${First}${Space}${Second}${Space}${_LowerCase<`${Rest}`>}`
                   : MatchOtherLeft<First, Second, 'symbol'> extends true
-                    ? `${Space}${Second}${_UpperCase<`${Rest}`>}`
-                    : `${First}${_UpperCase<`${Second}${Rest}`>}`
+                    ? `${Space}${Second}${_LowerCase<`${Rest}`>}`
+                    : `${First}${_LowerCase<`${Second}${Rest}`>}`
     : Str extends ASCIISymbol
       ? ''
       : Str
@@ -124,6 +124,7 @@ type _UpperCase<Str extends string> =
  *    7、小写 + 大写
  *    8、数字 + 英文
  *    9、英文 + 数字
+ *    
  * 
  * 
  * 实现思路：（基本与 CamelCase 一样：模式匹配 + 递归）
@@ -137,7 +138,7 @@ type _UpperCase<Str extends string> =
  * @return { string } 转换后大写的字符串
  * 
  * @example
- * type Test = UpperCase<'Foo Bar'>
- * >>> 'FOO BAR'
+ * type Test = LowerCase<'Foo Bar'>
+ * >>> 'foo bar'
  */
-export type UpperCase<Str extends string> = TrimEnd<ToUpper<_UpperCase<Str>>>
+export type LowerCase<Str extends string> = TrimEnd<ToLower<_LowerCase<Str>>>
