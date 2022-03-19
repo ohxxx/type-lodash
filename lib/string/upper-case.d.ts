@@ -1,5 +1,6 @@
-import type { ASCIISymbol, Space } from '../helpers/constant'
+import type { ASCIISymbol, LowercaseChars, Space, UppercaseChars } from '../helpers/constant'
 import type { MatchOtherLeft, MatchOtherRight, MatchRegularType } from '../helpers/match-type'
+import type { Split } from './split'
 import type { ToUpper } from './to-upper'
 import type { TrimEnd } from './trim-end'
 /**
@@ -30,21 +31,82 @@ type SecondAddSpacesBA<
     : true
 
 
+/**
+ * 连续英文字符转化：
+ *    1、aaa >>> AAA
+ *    2、Aaa >>> AAA
+ *    3、AAA >>> AAA
+ * 
+ *    4、aaA >>> AA A
+ *    5、aAA >>> AA A
+ *    6、AaA >>> AA A
+ * 
+ *    7、aAa >>> A AA
+ *    8、AAa >>> A AA
+ */
+// type AAATypes = {
+//   'aaa': `${LowercaseChars}${LowercaseChars}${LowercaseChars}`
+//   'Aaa': `${UppercaseChars}${LowercaseChars}${LowercaseChars}`
+//   'AAA': `${UppercaseChars}${UppercaseChars}${UppercaseChars}`
+// }
+// type AAA<First extends string, Second extends string, Third extends string> =
+//   `${First}${Second}${Third}` extends AAATypes[keyof AAATypes]
+//     ? true
+//     : false
+/**
+ * 符合能转换成 AA_A 的组合
+ */
+type AA_ATypes = {
+  'aaA': `${LowercaseChars}${LowercaseChars}${UppercaseChars}`
+  'aAA': `${LowercaseChars}${UppercaseChars}${UppercaseChars}`
+  'AaA': `${UppercaseChars}${LowercaseChars}${UppercaseChars}`
+}
+/**
+ * 将指定模式的字符转成 AA_A
+ */
+type MatchConvertAA_A<First extends string, Second extends string, Third extends string> =
+  `${First}${Second}${Third}` extends AA_ATypes[keyof AA_ATypes]
+    ? true
+    : false
+  
+/**
+ * 符合能转换成 A_AA 的组合
+ */
+type A_AATypes = {
+  'aAa': `${LowercaseChars}${UppercaseChars}${LowercaseChars}`
+  'AAa': `${UppercaseChars}${UppercaseChars}${LowercaseChars}`
+}
+/**
+ * 将指定模式的字符转成 A_AA
+ */
+type MatchConvertA_AA<First extends string, Second extends string, Third extends string> =
+  `${First}${Second}${Third}` extends A_AATypes[keyof A_AATypes]
+    ? true
+    : false
+
+
+/**
+ * 内部转换规则
+ */
 type _UpperCase<Str extends string> = 
   Str extends `${infer First}${infer Second}${infer Rest}`
     ? MatchRegularType<First, Second, 'allSymbol'> extends true
-      ? `${_UpperCase<Rest>}`
+      ? `${_UpperCase<`${Rest}`>}`
       : MatchRegularType<First, Second, 'symbolEnglish'> extends true
-        ? `${Second}${_UpperCase<Rest>}`
+        ? `${Second}${_UpperCase<`${Rest}`>}`
         : FilterSecond<First, Second> extends true
-          ? `${First}${Space}${_UpperCase<Rest>}`
+          ? `${First}${Space}${_UpperCase<`${Rest}`>}`
           : MatchRegularType<First, Second, 'lowercaseUppercase'> extends true
-            ? `${First}${Space}${Second}${_UpperCase<Rest>}`
-            : SecondAddSpacesBA<First, Second> extends true
-              ? `${First}${Space}${Second}${Space}${_UpperCase<Rest>}`
-              : MatchOtherLeft<First, Second, 'symbol'> extends true
-                ? `${Space}${Second}${_UpperCase<Rest>}`
-                : `${First}${_UpperCase<`${Second}${Rest}`>}`
+            ? `${First}${Space}${Second}${_UpperCase<`${Rest}`>}`
+            : MatchConvertA_AA<First, Second, Split<Rest>[0]> extends true
+              ? `${First}${Space}${_UpperCase<`${Second}${Rest}`>}`
+              : MatchConvertAA_A<First, Second, Split<Rest>[0]> extends true
+                ? `${First}${Second}${Space}${_UpperCase<`${Rest}`>}`
+                : SecondAddSpacesBA<First, Second> extends true
+                  ? `${First}${Space}${Second}${Space}${_UpperCase<`${Rest}`>}`
+                  : MatchOtherLeft<First, Second, 'symbol'> extends true
+                    ? `${Space}${Second}${_UpperCase<`${Rest}`>}`
+                    : `${First}${_UpperCase<`${Second}${Rest}`>}`
     : Str extends ASCIISymbol
       ? ''
       : Str
