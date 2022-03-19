@@ -245,7 +245,6 @@
 
 - [ ] Deburr
 - [ ] EscapeRegExp
-- [ ] KebabCase
 - [ ] ParseInt
 - [ ] SnakeCase
 - [ ] Template
