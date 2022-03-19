@@ -22,6 +22,7 @@ expectType<'Aaaaa A'>(startCase('AaaaaA'))
 expectType<'Aaaa AA'>(startCase('AaaaAA'))
 expectType<'Aaa AAA'>(startCase('AaaAAA'))
 expectType<'Aa AAAA'>(startCase('AaAAAA'))
+expectType<'Aa A Aa AAA'>(startCase('AaAAaAAA'))
 expectType<'Aaaabccc BBBBCCD Dd DD Dcc Dc DDDDCC Cc C'>(startCase('AaaabcccBBBBCCDDdDDDccDcDDDDCCCcC'))
 
 
