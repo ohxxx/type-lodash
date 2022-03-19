@@ -248,7 +248,6 @@
 - [ ] KebabCase
 - [ ] ParseInt
 - [ ] SnakeCase
-- [ ] StartCase
 - [ ] Template
 - [ ] Truncate
 - [ ] Words
