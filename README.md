@@ -80,6 +80,8 @@
 - **Unescape** 将字符串中的 &amp;, &lt;, &gt;, &quot;,和 &#39; HTML实体字符转成字符
 - **CamelCase** 将字符串转换为驼峰式大小写
 - **UpperCase** 将字符串（作为空格分隔的单词）转换为大写
+- **LowerCase** 将字符串（作为空格分隔的单词）转换为小写
+
 
 
 ### Util

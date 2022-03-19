@@ -246,7 +246,6 @@
 - [ ] Deburr
 - [ ] EscapeRegExp
 - [ ] KebabCase
-- [ ] LowerCase
 - [ ] ParseInt
 - [ ] SnakeCase
 - [ ] StartCase

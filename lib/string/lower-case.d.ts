@@ -112,7 +112,7 @@ type _LowerCase<Str extends string> =
       : Str
 
 /**
- * 将字符串（作为空格分隔的单词）转换为大写
+ * 将字符串（作为空格分隔的单词）转换为小写
  * 
  * 出现场景：
  *    1、符号 + 符号
@@ -127,15 +127,15 @@ type _LowerCase<Str extends string> =
  *    
  * 
  * 
- * 实现思路：（基本与 CamelCase 一样：模式匹配 + 递归）
+ * 实现思路：（基本与 UpperCase 一样：模式匹配 + 递归）
  *  需要注意：
  *    1、指定符号与字母数字之间需要用空格隔开
  *    2、结尾需要进行去空格处理（模式匹配问题）
- *    3、处理完成后进行大写转换
+ *    3、处理完成后进行小写转换
  * 
  * 
  * @param { string } - 要转换的字符串
- * @return { string } 转换后大写的字符串
+ * @return { string } 转换后小写的字符串
  * 
  * @example
  * type Test = LowerCase<'Foo Bar'>
