@@ -244,7 +244,6 @@
 ## String
 
 - [ ] Deburr
-- [ ] EscapeRegExp
 - [ ] ParseInt
 - [ ] Template
 - [ ] Truncate

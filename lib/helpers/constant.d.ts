@@ -81,3 +81,8 @@ export type CombinationTypes = {
   // 大写 + 小写
   'uppercaseLowercase': `${UppercaseChars}${LowercaseChars}`
 }
+
+/**
+ * 正则表达式特殊字符
+ */
+export type RegExpChars = '^' | '$' | '' | '.' | '*' | '+' | '?' | '(' | ')' | '[' | ']' | '{' | '}' | '|' | '\\'
