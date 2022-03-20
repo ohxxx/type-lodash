@@ -17,6 +17,7 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+*.history
 
 # Dependency directories
 node_modules
