@@ -164,7 +164,6 @@
 - [ ] ToNumber
 - [ ] ToPlainObject
 - [ ] ToSafeInteger
-- [ ] ToString
 
 ## Math
 

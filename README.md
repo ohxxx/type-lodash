@@ -42,6 +42,8 @@
 - **IsMap** 检查是否为 map 类型
 - **IsWeakMap** 检查是否为 weakMap 类型
 - **IsSymbol** 检查是否为 symbol 类型
+- **ToString** 将值转换为字符串
+
 
 
 ### Math
