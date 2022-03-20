@@ -1,5 +1,4 @@
 import type { RegExpChars } from "../helpers/constant";
-
 /**
  * 转义正则表达式特殊字符"^"、"$"、""、"."、"*"、"+"、"?"、"("、")"、"["、"]"、"{"、"}"、"|" 和 "\\" 在字符串中
  * 
@@ -15,9 +14,11 @@ import type { RegExpChars } from "../helpers/constant";
  * type Test = EscapeRegExp<'[lodash](https://lodash.com/)'>
  * >>> '\\[lodash\\]\\(https://lodash\\.com/\\)'
  */
-export type EscapeRegExp<Str extends string> = 
-  Str extends `${infer First}${infer Rest}`
-    ? First extends RegExpChars
-      ? `\\${First}${EscapeRegExp<Rest>}`
-      : `${First}${EscapeRegExp<Rest>}`
-    : Str
+export type EscapeRegExp<Str extends string | null | undefined> = 
+  NonNullable<Str> extends never
+    ? ''
+    : Str extends `${infer First}${infer Rest}`
+      ? First extends RegExpChars
+        ? `\\${First}${EscapeRegExp<Rest>}`
+        : `${First}${EscapeRegExp<Rest>}`
+      : Str
