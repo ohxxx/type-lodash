@@ -154,7 +154,6 @@
 - [ ] IsPlainObject
 - [ ] IsRegExp
 - [ ] IsSafeInteger
-- [ ] IsSymbol
 - [ ] IsTypedArray
 - [ ] Lt
 - [ ] Lte
