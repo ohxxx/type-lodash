@@ -1,3 +1,4 @@
+import type { Length } from "../helpers/array-length";
 import type { BuildArray } from "../helpers/build-array";
 /**
  * 计算数组中值的总和
@@ -22,5 +23,5 @@ export type Sum<
   Arr extends [infer First, ...infer Rest]
     ? Rest extends number[]
       ? Sum<Rest, [..._AllArr, ...BuildArray<First & number>]>
-      : _AllArr['length']
-    : _AllArr['length']
+      : Length<_AllArr>
+    : Length<_AllArr>

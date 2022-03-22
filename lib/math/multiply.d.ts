@@ -1,3 +1,4 @@
+import { Length } from "../helpers/array-length"
 import type { BuildArray } from "../helpers/build-array"
 import type { Subtract } from "./subtract"
 /**
@@ -38,5 +39,5 @@ export type Multiply<
   _Result extends unknown[] = []
 > = 
   Multiplicand extends 0
-    ? _Result['length']
+    ? Length<_Result>
     : Multiply<Multiplier, Subtract<Multiplicand, 1>, [...BuildArray<Multiplier>, ..._Result]>

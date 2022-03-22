@@ -1,3 +1,5 @@
+import type { Length } from "../helpers/array-length";
+
 /**
  * 返回一个非假值的元组
  * （假值包含：false、null、0、""、undefined）
@@ -29,7 +31,7 @@ export type Compact<
   Arr extends unknown[],
   _Result extends unknown[] = []
 > = 
-  Arr['length'] extends 0
+  Length<Arr> extends 0
     ? _Result
     : Arr extends [infer First, ...infer Rest]
       ? First extends Falsey

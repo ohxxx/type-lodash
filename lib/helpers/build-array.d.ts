@@ -1,3 +1,5 @@
+import type { Length } from "./array-length";
+
 /**
  * 构建指定长度的数组
  * 主要用于数学操作、获取字符串长度等
@@ -13,4 +15,4 @@
 export type BuildArray<
   Len extends number,
   _Arr extends unknown[] = []
-> = _Arr['length'] extends Len ? _Arr : BuildArray<Len, [..._Arr, unknown]>
+> = Length<_Arr> extends Len ? _Arr : BuildArray<Len, [..._Arr, unknown]>

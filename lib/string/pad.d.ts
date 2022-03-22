@@ -2,6 +2,7 @@ import type { Join } from '../array/join';
 import type { Subtract } from '../math/subtract';
 import type { Split } from './split';
 import type { IsEven } from '../helpers/is-even';
+import type { Length } from '../helpers/array-length';
 /**
  * 在字符串左右两侧填充字符
  * 如果不均分则右边比左边多一个
@@ -34,10 +35,10 @@ export type Pad<
   Len extends number,
   Chars extends string = ' ',
   _Arr extends unknown[] = Split<Str>
-> = Subtract<Len, _Arr['length']> extends never
+> = Subtract<Len, Length<_Arr>> extends never
   ? Join<_Arr, ''>
-  : Subtract<Len, _Arr['length']> extends 0
+  : Subtract<Len, Length<_Arr>> extends 0
     ? Join<_Arr, ''>
-    : IsEven<Subtract<Len, _Arr['length']>> extends true
+    : IsEven<Subtract<Len, Length<_Arr>>> extends true
       ? Pad<Str, Len, Chars, [Chars, ..._Arr, Chars]>
       : Pad<Str, Len, Chars, [..._Arr, Chars]>

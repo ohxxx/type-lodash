@@ -1,11 +1,12 @@
 import { expectType, expectError } from 'tsd';
+import type { Length } from '../../lib/helpers/array-length';
 import type { EndsWith } from '../../lib/string/ends-with'
 import type { Split } from '../../lib/string/split';
 
 declare function endsWith<
   Str extends string,
   Target extends string,
-  Position extends number = Split<Str>['length']
+  Position extends number = Length<Split<Str>>
 >(str: Str, target: Target, position?: Position): EndsWith<Str, Target, Position>
 
 expectType<true>(endsWith('abc', 'c'))

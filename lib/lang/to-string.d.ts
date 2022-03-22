@@ -6,6 +6,7 @@ import type { IsWeakSet } from "./is-weak-set";
 import type { IsError } from "./is-error";
 import type { Drop } from "../array/drop";
 import type { TrimEnd } from "../string/trim-end";
+import type { Length } from "../helpers/array-length";
 /**
  * 可以直接转成字符串的类型
  */
@@ -50,7 +51,7 @@ type TupleToString<
   Arr extends any[],
   _Result extends string = ''
 > = 
-  Arr['length'] extends 0
+  Length<Arr> extends 0
     ? TrimEnd<_Result, ','>
     : TupleToString<
         Drop<Arr>,

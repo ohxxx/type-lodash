@@ -1,4 +1,5 @@
 import type { Join } from "../array/join"
+import type { Length } from "../helpers/array-length"
 import type { Subtract } from "../math/subtract"
 import type { Split } from "./split"
 /**
@@ -29,8 +30,8 @@ export type PadEnd<
   Len extends number,
   Chars extends string = ' ',
   _Arr extends unknown[] = Split<Str>
-> = Subtract<Len, _Arr['length']> extends never
+> = Subtract<Len, Length<_Arr>> extends never
     ? Join<_Arr, ''>
-    : Subtract<Len, _Arr['length']> extends 0
+    : Subtract<Len, Length<_Arr>> extends 0
       ? Join<_Arr, ''>
       : PadEnd<Str, Len, Chars, [..._Arr, Chars]>

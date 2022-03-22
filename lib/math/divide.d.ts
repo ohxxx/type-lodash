@@ -1,3 +1,4 @@
+import type { Length } from "../helpers/array-length"
 import type { Subtract } from "./subtract"
 /**
  * [第一步]: 生成指定长度的数组
@@ -40,5 +41,5 @@ export type Divide<
   _Result extends unknown[] = []
 > =
   Dividend extends 0
-    ? _Result['length']
+    ? Length<_Result>
     : Divide<Subtract<Dividend, Divisor>, Divisor, [unknown, ..._Result]>

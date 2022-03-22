@@ -1,4 +1,5 @@
-import { Add } from "../math/add"
+import type { Length } from "../helpers/array-length"
+import type { Add } from "../math/add"
 
 /**
  * 反转元组
@@ -23,6 +24,6 @@ export type Reverse<
   _Index extends number = 0,
   _Result extends unknown[] = []
 > = 
-  _Result['length'] extends Arr['length']
+  Length<_Result> extends Length<Arr>
     ? _Result
     : Reverse<Arr, (Add<_Index, 1> & number), [Arr[_Index], ..._Result]>

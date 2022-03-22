@@ -1,3 +1,4 @@
+import type { Length } from "../helpers/array-length";
 import type { BuildArray } from "../helpers/build-array";
 /**
  * [第一步]: 构建指定长度的数组
@@ -35,4 +36,4 @@ import type { BuildArray } from "../helpers/build-array";
 export type Add<
   Augend extends number,
   Addend extends number
-> = [...BuildArray<Augend>, ...BuildArray<Addend>]['length']
+> = Length<[...BuildArray<Augend>, ...BuildArray<Addend>]>

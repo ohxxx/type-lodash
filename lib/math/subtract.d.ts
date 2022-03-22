@@ -1,3 +1,4 @@
+import type { Length } from '../helpers/array-length'
 import type { BuildArray } from '../helpers/build-array'
 /**
  * [第一步]: 生成指定长度的数组
@@ -34,5 +35,5 @@ export type Subtract<
   Subtrahend extends number
 > =
   BuildArray<Minuend> extends [...BuildArray<Subtrahend>, ...infer Rest]
-  ? Rest['length']
+  ? Length<Rest>
   : never

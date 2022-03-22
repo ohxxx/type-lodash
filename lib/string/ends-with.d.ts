@@ -1,3 +1,4 @@
+import type { Length } from '../helpers/array-length'
 import type { BuildStringArray, Split } from './split'
 /**
  * [第一步]: 拆分字符串组成数组
@@ -70,7 +71,7 @@ type GetIndexString<
 export type EndsWith<
   Str extends string,
   Target extends string,
-  Position extends number = Split<Str>['length']
+  Position extends number = Length<Split<Str>>
 > = GetIndexString<Str, Position> extends Target
   ? true
   : false
