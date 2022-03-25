@@ -1,8 +1,14 @@
 import type { Length } from "../helpers/array-length";
 
 /**
- * 返回一个非假值的元组
- * （假值包含：false、null、0、""、undefined）
+ * 假值
+ */
+type Falsey = false | null | 0 | "" | undefined;
+
+
+/**
+ * 内部实现，私有操作不对外暴露
+ * 
  * 
  * 实现思路：
  *   第一种：
@@ -15,26 +21,29 @@ import type { Length } from "../helpers/array-length";
  *          a、等于0 - 返回结果元组
  *          b、不等于0 - 执行第三步
  *      3、利用类型推断，递归判断
- * 
+ */
+type _Compact<
+  Arr extends unknown[],
+  _Result extends unknown[] = [] // 辅助参数
+> = 
+  Length<Arr> extends 0
+    ? _Result
+    : Arr extends [infer First, ...infer Rest]
+      ? First extends Falsey
+        ? _Compact<Rest, _Result>
+        : _Compact<Rest, [..._Result, First]>
+      : _Result
+    
+
+/**
+ * 返回一个非假值的元组
+ * （假值包含：false、null、0、""、undefined）
  * 
  * @param { unknown[] } Arr - 当前元组
- * @param { unknown[] } _Result - 非假值元组（内部递归使用）
  * @return { unknown[] } 最后的结果元组
  * 
  * @example
  * type Test = Compact<[0, 1, false, true, null, undefined, "", "3"]>
  * >>> [1, true, "3"]
  */
-type Falsey = false | null | 0 | "" | undefined;
-
-export type Compact<
-  Arr extends unknown[],
-  _Result extends unknown[] = []
-> = 
-  Length<Arr> extends 0
-    ? _Result
-    : Arr extends [infer First, ...infer Rest]
-      ? First extends Falsey
-        ? Compact<Rest, _Result>
-        : Compact<Rest, [..._Result, First]>
-      : _Result
+export type Compact<Arr extends unknown[]> = _Compact<Arr>

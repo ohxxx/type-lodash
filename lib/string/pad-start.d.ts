@@ -2,8 +2,10 @@ import type { Join } from "../array/join"
 import type { Length } from "../helpers/array-length"
 import type { Subtract } from "../math/subtract"
 import type { Split } from "./split"
+
 /**
- * 在字符串左侧填充字符
+ * 内部实现，私有操作不对外暴露
+ * 
  * 
  * 实现思路：（1、字符串>>>元组。2、元组>>>字符串）
  *    1、使用 Split 将字符串拆分到临时元组 _Arr
@@ -12,12 +14,24 @@ import type { Split } from "./split"
  *        b、结果类型不是 never - 再判断结果是否为 0 
  *            1、是的 - 返回结果，不做添加
  *            2、不是的 - 递归，重复1、2，直到返回结果
- * 
+ */
+type _PadStart<
+ Str extends string,
+ Len extends number,
+ Chars extends string = ' ',
+ _Arr extends unknown[] = Split<Str>  // 辅助参数
+> = Subtract<Len, Length<_Arr>> extends never
+   ? Join<_Arr, ''>
+   : Subtract<Len, Length<_Arr>> extends 0
+     ? Join<_Arr, ''>
+     : _PadStart<Str, Len, Chars, [Chars, ..._Arr]>
+
+/**
+ * 在字符串左侧填充字符
  * 
  * @param { string } Str - 要填充的字符串
  * @param { string } Len - 填充长度（默认为0）
  * @param { string } Chars - 用作填充的字符串（默认是空字符串）
- * @param { unknown[] } _Arr - 字符串元组（内部暂存数据使用）
  * @return { string } 填充后的字符串
  * 
  * @todo：
@@ -33,9 +47,4 @@ export type PadStart<
   Str extends string,
   Len extends number,
   Chars extends string = ' ',
-  _Arr extends unknown[] = Split<Str>
-> = Subtract<Len, Length<_Arr>> extends never
-    ? Join<_Arr, ''>
-    : Subtract<Len, Length<_Arr>> extends 0
-      ? Join<_Arr, ''>
-      : PadStart<Str, Len, Chars, [Chars, ..._Arr]>
+> = _PadStart<Str, Len, Chars>
