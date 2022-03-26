@@ -3,7 +3,7 @@ import type { Length } from "../helpers/array-length";
 /**
  * 假值
  */
-type Falsey = false | null | 0 | "" | undefined;
+type Falsy = false | null | 0 | "" | undefined;
 
 
 /**
@@ -29,7 +29,7 @@ type _Compact<
   Length<Arr> extends 0
     ? _Result
     : Arr extends [infer First, ...infer Rest]
-      ? First extends Falsey
+      ? First extends Falsy
         ? _Compact<Rest, _Result>
         : _Compact<Rest, [..._Result, First]>
       : _Result
