@@ -2,13 +2,13 @@ lockfileVersion: 5.3
 
 specifiers:
   tsd: ^0.19.1
-  typescript: ^4.5.4
+  typescript: ^4.6.3
   vite: ^2.8.0
   vitepress: ^0.22.3
 
 devDependencies:
   tsd: 0.19.1
-  typescript: 4.5.5
+  typescript: 4.6.3
   vite: 2.8.4
   vitepress: 0.22.3
 
@@ -1266,8 +1266,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /typescript/4.5.5:
-    resolution: {integrity: sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==}
+  /typescript/4.6.3:
+    resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
