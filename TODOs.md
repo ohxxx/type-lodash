@@ -242,7 +242,6 @@
 ## String
 
 - [ ] Deburr
-- [ ] ParseInt
 - [ ] Template
 - [ ] Truncate
 - [ ] Words

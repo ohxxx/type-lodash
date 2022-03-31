@@ -34,12 +34,7 @@ expectType<['LETTERS', 'Æiou', 'Are', 'Vowels']>(words('LETTERSÆiouAreVowels')
 expectType<['æiou', 'Are', 'Vowels']>(words('æiouAreVowels'));
 expectType<['æiou', '2', 'Consonants']>(words('æiou2Consonants'));
 
-/**
- * 我认为下面的测试用例毫无意义
- * 所以不做匹配处理
- * 因为还有很多符合提条件的 5th、6th....99th、100t... 100000th
- */
-// expectType<['1st']>(words('1st'));
-// expectType<['2nd']>(words('2nd'));
-// expectType<['3rd']>(words('3rd'));
-// expectType<['4th']>(words('4th'));
+expectType<['1st']>(words('1st'));
+expectType<['2nd']>(words('2nd'));
+expectType<['3rd']>(words('3rd'));
+expectType<['4th']>(words('4th'));
