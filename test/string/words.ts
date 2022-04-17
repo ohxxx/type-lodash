@@ -18,8 +18,10 @@ expectType<['xxx', 'YYY']>(words('xxx *, YYY'))
 expectType<['xxx', 'YYY']>(words('xxx&&&YYY'))
 expectType<['xxx（yyy）']>(words('xxx（yyy）'))
 expectType<['xxx（', 'YYY）']>(words('xxx（YYY）'))
+expectType<['xxx', '（YYY）']>(words('xxx&（YYY）'))
 expectType<['xxx', '（', 'YYY）']>(words('xxx&（&YYY）'))
 expectType<['xxx（）', 'YYY']>(words('xxx（）YYY'))
+expectType<['xxx', '（YYY', 'Sussdhq', 'W', 'Wn', '（U（', 'U', 'XH', 'Ssjsh）']>(words('xxx&（YYYSussdhqWWn*@（U（@U@#&XHSsjsh）'))
 
 /**
  * 以下测试用例参考于（https://github.com/lodash/lodash/blob/master/test/words.test.js）
