@@ -244,7 +244,6 @@
 - [ ] Deburr
 - [ ] Template
 - [ ] Truncate
-- [ ] Words
 
 ## Util
 

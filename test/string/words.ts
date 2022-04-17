@@ -1,18 +1,25 @@
 import { expectType } from 'tsd';
 import type { Words } from '../../lib/string/words'
 
-declare function words<
-  Str extends string,
-  Pattern extends string = ''
->(str: Str, P?: Pattern): Words<Str, Pattern>
+declare function words<Str extends string>(str: Str): Words<Str>
 
 
 expectType<[]>(words(''))
+expectType<[]>(words('..'))
+expectType<[]>(words('...'))
+expectType<['。。。']>(words('。。。'))
 expectType<['xxx']>(words('xxx'))
 expectType<['xxxyyy']>(words('xxxyyy'))
 expectType<['xxx', 'Yyy']>(words('xxxYyy'))
 expectType<['xxx', 'Y', 'Yy']>(words('xxxYYy'))
 expectType<['xxx', 'YYY']>(words('xxxYYY'))
+expectType<['xxx', 'YYY']>(words('xxx*&(YYY'))
+expectType<['xxx', 'YYY']>(words('xxx *, YYY'))
+expectType<['xxx', 'YYY']>(words('xxx&&&YYY'))
+expectType<['xxx（yyy）']>(words('xxx（yyy）'))
+expectType<['xxx（', 'YYY）']>(words('xxx（YYY）'))
+expectType<['xxx', '（', 'YYY）']>(words('xxx&（&YYY）'))
+expectType<['xxx（）', 'YYY']>(words('xxx（）YYY'))
 
 /**
  * 以下测试用例参考于（https://github.com/lodash/lodash/blob/master/test/words.test.js）
@@ -29,8 +36,9 @@ expectType<['xhr', '2', 'Request']>(words('xhr2Request'));
 expectType<['XML', 'Http']>(words('XMLHttp'));
 expectType<['Xml', 'HTTP']>(words('XmlHTTP'));
 expectType<['Xml', 'Http']>(words('XmlHttp'));
- 
+
 expectType<['LETTERS', 'Æiou', 'Are', 'Vowels']>(words('LETTERSÆiouAreVowels'));
+expectType<['LETTER', 'Ss', 'Æiou', 'Are', 'Vowels']>(words('LETTERSsÆiouAreVowels'));
 expectType<['æiou', 'Are', 'Vowels']>(words('æiouAreVowels'));
 expectType<['æiou', '2', 'Consonants']>(words('æiou2Consonants'));
 
