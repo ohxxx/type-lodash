@@ -1,4 +1,5 @@
 import type { Length } from "../helpers/array-length"
+import type { Cast } from "../helpers/cast"
 import type { Add } from "../math/add"
 
 /**
@@ -17,7 +18,7 @@ type _Reverse<
 > = 
 Length<_Result> extends Length<Arr>
   ? _Result
-  : _Reverse<Arr, (Add<_Index, 1> & number), [Arr[_Index], ..._Result]>
+  : _Reverse<Arr, Cast<Add<_Index, 1>, number>, [Arr[_Index], ..._Result]>
 
 /**
  * 反转元组

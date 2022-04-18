@@ -1,4 +1,5 @@
 import type { Length } from "../helpers/array-length"
+import type { Cast } from "../helpers/cast"
 import type { Add } from "./add"
 import type { Divide } from "./divide"
 
@@ -54,4 +55,4 @@ Count extends number = 0,
 > =
   Length<Arr> extends 0
     ? Divide<Count, 2>
-    : Mean<Pop<Arr, 'array'>, Add<Count, Pop<Arr, 'value'> & number> & number>
+    : Mean<Pop<Arr, 'array'>, Cast<Add<Count, Cast<Pop<Arr, 'value'>, number>>, number>>

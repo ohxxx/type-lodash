@@ -1,3 +1,4 @@
+import type { Cast } from "../helpers/cast"
 import type { Add } from "../math/add"
 /**
  * 内部实现，私有操作不对外暴露
@@ -17,7 +18,7 @@ type _Drop<
 _Index extends N
   ? Arr
   : Arr extends [infer _First, ...infer Rest]
-    ? _Drop<Rest, N, Add<_Index, 1> & number>
+    ? _Drop<Rest, N, Cast<Add<_Index, 1>, number>>
     : Arr
 
 /**

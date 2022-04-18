@@ -1,3 +1,4 @@
+import type { Cast } from "../helpers/cast"
 import type { Add } from "../math/add"
 
 /**
@@ -18,7 +19,7 @@ type _DropRight<
   _Index extends N
     ? Arr
     : Arr extends [...infer Other, infer _Last]
-      ? _DropRight<Other, N, Add<_Index, 1> & number>
+      ? _DropRight<Other, N, Cast<Add<_Index, 1>, number>>
   : Arr
 
 /**

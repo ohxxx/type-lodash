@@ -1,5 +1,6 @@
 import type { Length } from "../helpers/array-length";
 import type { BuildArray } from "../helpers/build-array";
+import type { Cast } from "../helpers/cast";
 
 /**
  * 内部实现，私有操作不对外暴露
@@ -15,7 +16,7 @@ type _Sum<
 > =
   Arr extends [infer First, ...infer Rest]
     ? Rest extends number[]
-      ? _Sum<Rest, [..._AllArr, ...BuildArray<First & number>]>
+      ? _Sum<Rest, [..._AllArr, ...BuildArray<Cast<First, number>>]>
       : Length<_AllArr>
     : Length<_AllArr>
 
