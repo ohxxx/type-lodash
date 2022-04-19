@@ -27,29 +27,9 @@ export type HTMLEntityChars = {
 }
 
 /**
- * 减号
+ * 正则表达式特殊字符
  */
-export type MinusSymbol = '-'
-
-/**
- * 加号
- */
-export type PlusSymbol = '+'
-
-/**
- * 数学符号
- */
-export type MathSymbol = MinusSymbol | PlusSymbol
-
-/**
- * 名次字符
- */
-export type RankChars = '1st' | '2nd' | '3rd' | '4th'
-
-/**
- * 阿拉伯数字
- */
-export type ArabicFigures = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+export type RegExpChars = '^' | '$' | '' | '.' | '*' | '+' | '?' | '(' | ')' | '[' | ']' | '{' | '}' | '|' | '\\'
 
 /**
  * ASCII打印字符
@@ -57,22 +37,17 @@ export type ArabicFigures = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 export type ASCIISymbol = ' ' | '!' | '"' | '#' | '$' | '%' | '&' | "'" | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' | '\\' | ']' | '^' | '_' | '`' | '{' | '}' | '|' | '~'
 
 /**
- * 空格
- */
-export type Space = ' '
-
-/**
  * 基础类型匹配
  */
 export type BaseTypes = {
-  // 大写英文
-  'uppercase': `${UppercaseChars}`
-  // 符号
-  'symbol': `${ASCIISymbol}`
+// 大写英文
+'uppercase': `${UppercaseChars}`
+// 符号
+'symbol': `${ASCIISymbol}`
 }
 
 /**
- * 常规类型合集
+ * 常规字符拼接合集
  */
 export type CombinationTypes = {
   // 符号 + 符号
@@ -102,6 +77,31 @@ export type CombinationTypes = {
 }
 
 /**
- * 正则表达式特殊字符
+ * 空格
  */
-export type RegExpChars = '^' | '$' | '' | '.' | '*' | '+' | '?' | '(' | ')' | '[' | ']' | '{' | '}' | '|' | '\\'
+export type Space = ' '
+
+/**
+ * 名次字符
+ */
+export type RankChars = '1st' | '2nd' | '3rd' | '4th'
+ 
+/**
+ * 减号
+ */
+export type MinusSymbol = '-'
+
+/**
+ * 加号
+ */
+export type PlusSymbol = '+'
+
+/**
+ * 数学符号
+ */
+export type MathSymbol = MinusSymbol | PlusSymbol
+
+/**
+ * 阿拉伯数字
+ */
+export type ArabicFigures = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
