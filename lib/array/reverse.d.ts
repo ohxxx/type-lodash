@@ -16,9 +16,9 @@ type _Reverse<
   _Index extends number = 0,  // 辅助参数
   _Result extends unknown[] = []  // 辅助参数
 > = 
-Length<_Result> extends Length<Arr>
-  ? _Result
-  : _Reverse<Arr, Cast<Add<_Index, 1>, number>, [Arr[_Index], ..._Result]>
+  Length<_Result> extends Length<Arr>
+    ? _Result
+    : _Reverse<Arr, Cast<Add<_Index, 1>, number>, [Arr[_Index], ..._Result]>
 
 /**
  * 反转元组

@@ -9,13 +9,13 @@ import type { Subtract } from '../math/subtract'
  *    2、使用临时字符串拼接存储当前要重复的字符串
  */
 type _Repeat<
- Str extends string = '',
- N extends number = 1,
- _Result extends string = ''  // 辅助参数
+  Str extends string = '',
+  N extends number = 1,
+  _Result extends string = ''  // 辅助参数
 > = 
- N extends 0
-   ? _Result
-   : _Repeat<Str, Subtract<N, 1>, `${_Result}${Str}`>
+  N extends 0
+    ? _Result
+    : _Repeat<Str, Subtract<N, 1>, `${_Result}${Str}`>
 
 
 /**

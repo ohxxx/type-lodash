@@ -35,5 +35,5 @@ export type Subtract<
   Subtrahend extends number
 > =
   BuildArray<Minuend> extends [...BuildArray<Subtrahend>, ...infer Rest]
-  ? Length<Rest>
-  : never
+    ? Length<Rest>
+    : never

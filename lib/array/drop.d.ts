@@ -15,11 +15,11 @@ type _Drop<
   N extends number = 1,
   _Index extends number = 0 // 辅助参数
 > = 
-_Index extends N
-  ? Arr
-  : Arr extends [infer _First, ...infer Rest]
-    ? _Drop<Rest, N, Cast<Add<_Index, 1>, number>>
-    : Arr
+  _Index extends N
+    ? Arr
+    : Arr extends [infer _First, ...infer Rest]
+      ? _Drop<Rest, N, Cast<Add<_Index, 1>, number>>
+      : Arr
 
 /**
  * 切片元组，去除元组前面 N 个元素

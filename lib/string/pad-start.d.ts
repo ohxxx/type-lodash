@@ -16,15 +16,15 @@ import type { Split } from "./split"
  *            2、不是的 - 递归，重复1、2，直到返回结果
  */
 type _PadStart<
- Str extends string,
- Len extends number,
- Chars extends string = ' ',
- _Arr extends unknown[] = Split<Str>  // 辅助参数
+  Str extends string,
+  Len extends number,
+  Chars extends string = ' ',
+  _Arr extends unknown[] = Split<Str>  // 辅助参数
 > = Subtract<Len, Length<_Arr>> extends never
-   ? Join<_Arr, ''>
-   : Subtract<Len, Length<_Arr>> extends 0
-     ? Join<_Arr, ''>
-     : _PadStart<Str, Len, Chars, [Chars, ..._Arr]>
+  ? Join<_Arr, ''>
+  : Subtract<Len, Length<_Arr>> extends 0
+    ? Join<_Arr, ''>
+    : _PadStart<Str, Len, Chars, [Chars, ..._Arr]>
 
 /**
  * 在字符串左侧填充字符

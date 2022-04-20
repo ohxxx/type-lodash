@@ -1,4 +1,4 @@
-import { Length } from "../helpers/array-length"
+import type { Length } from "../helpers/array-length"
 import type { BuildArray } from "../helpers/build-array"
 import type { Subtract } from "./subtract"
 /**

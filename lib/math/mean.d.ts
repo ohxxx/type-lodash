@@ -1,33 +1,12 @@
 import type { Length } from "../helpers/array-length"
 import type { Cast } from "../helpers/cast"
+import type { Last } from "../array/last"
+import type { Pop } from "../helpers/pop"
 import type { Add } from "./add"
 import type { Divide } from "./divide"
 
 /**
- * [第一步]: 获取当前出栈的数字或者出栈的数字
- * 
- * @example
- * type Test1 = Pop<[1, 2, 3], 'value'>
- * >>> 1
- * type Test2 = Pop<[1, 2, 3], 'array'>
- * >>> [2, 3]
- */
-type ReturnType = 'value' | 'array'
-type Pop<
-  Arr extends number[],
-  Type extends ReturnType
-> =
-  Arr extends [infer First, ...infer Rest]
-    ? Type extends 'value'
-      ? First
-      : Rest
-    : Type extends 'value'
-      ? null
-      : []
-
-
-/**
- * [最后]: 求数组平均数
+ * 求数组平均数
  * 
  * 实现思路：（可以用 Add 与 Divide）
  *    1、出栈数组中的每一个元素，并且得到最新的数组
@@ -50,9 +29,9 @@ type Pop<
  * >>> 3
  */
 export type Mean<
-Arr extends number[],
-Count extends number = 0,
+  Arr extends number[],
+  Count extends number = 0,
 > =
   Length<Arr> extends 0
     ? Divide<Count, 2>
-    : Mean<Pop<Arr, 'array'>, Cast<Add<Count, Cast<Pop<Arr, 'value'>, number>>, number>>
+    : Mean<Pop<Arr>, Cast<Add<Count, Cast<Last<Arr>, number>>, number>>
