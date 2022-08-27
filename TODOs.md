@@ -15,7 +15,6 @@
 - [ ] DifferenceWith
 - [ ] DropRightWhile
 - [ ] DropWhile
-- [ ] Fill
 - [ ] FindIndex
 - [ ] FindLastIndex
 - [ ] Flatten
