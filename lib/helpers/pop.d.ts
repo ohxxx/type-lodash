@@ -1,15 +1,15 @@
 /**
- * 删除元组的最后一个元素，并返回改该元素
+ * 删除元组的最后一个元素，并返回新元组
  * 
  * @param { unknown[] } Arr - 需要操作的元组
- * @return { unknown } 返回删除的元素
+ * @return { unknown[] } 返回操作后的元组
  * 
  * @example
  * type Test = Pop<[1, '2', 3]>
- * >>> 3
+ * >>> [1, "2"]
  */
 export type Pop<Arr extends unknown[]> = 
-  Arr extends [...any, infer Last]
-    ? Last
+  Arr extends [...infer Other, any]
+    ? Other
     : []
     

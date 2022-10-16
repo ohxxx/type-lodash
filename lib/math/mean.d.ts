@@ -1,14 +1,10 @@
 import type { Length } from "../helpers/array-length"
 import type { Cast } from "../helpers/cast"
 import type { Last } from "../array/last"
+import type { Pop } from "../helpers/pop"
 import type { Add } from "./add"
 import type { Divide } from "./divide"
 
-// 删除最后一个元素
-type DelLast<Arr extends unknown[]> = 
-  Arr extends [...infer Other, any]
-    ? Other
-    : []
 /**
  * 求数组平均数
  * 
@@ -38,4 +34,4 @@ export type Mean<
 > =
   Length<Arr> extends 0
     ? Divide<Count, 2>
-    : Mean<DelLast<Arr>, Cast<Add<Count, Cast<Last<Arr>, number>>, number>>
+    : Mean<Pop<Arr>, Cast<Add<Count, Cast<Last<Arr>, number>>, number>>
