@@ -1,7 +1,7 @@
 {
   "name": "type-lodash",
   "description": "Refer to the type library written by lodash",
-  "author": "xxxDeveloper",
+  "author": "iiiiiixxx",
   "version": "0.0.0",
   "main": "lib/index.ts",
   "module": "lib/index.ts",
@@ -14,10 +14,10 @@
     "docs:serve": "vitepress serve docs"
   },
   "devDependencies": {
-    "tsd": "^0.19.1",
-    "typescript": "^4.8.2",
-    "vite": "^2.8.0",
-    "vitepress": "^0.22.3"
+    "tsd": "^0.24.1",
+    "typescript": "^4.8.4",
+    "vite": "^3.1.8",
+    "vitepress": "1.0.0-alpha.21"
   },
   "tsd": {
     "directory": "test"
