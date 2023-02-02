@@ -1,22 +1,17 @@
 <h1 align="center">
-  <img src="./assets/logo.svg" width="200">
+  <img src="./assets/logo.svg" width="200"><br/><br/>
+  <samp>Lodash 类型体操库 </samp><sup><em>WIP</em></sup>
 </h1>
 
-<p align="center">
-  <samp>Lodash 类型体操库</samp>
-</p>
-
-参考 [**Lodash**]('https://lodash.com/') 功能及 API 所开发的针对于 TS 类型的体操库。采用 TDD 的开发模式进行学习实践，大部分 Test cases 参考 Lodash，尽量将功能进行“对标”，就是玩 🤪
-
-该工具库切莫在项目中使用，各部分功能到可借鉴到项目中。
+参考 [**Lodash**]('https://lodash.com/') 功能及 API 所开发的针对于 TS 类型的体操库。采用 TDD 的开发模式进行学习实践，绝大部分功能特性及测试用例尽可能与 Lodash 保持一致，就是玩儿 😜。
 
 **不定时更新，有兴趣欢迎 PR**
 
+> 注意： 
+> - 该工具库切莫在项目中使用，但部分功能点的实现可借鉴到项目中。
+> - 有些`lodash`中的一些的工具方法，可能没办法实现，暂时保留方法，待有思绪再进行拓展。对于实在没办法实现的可以提取当前函数的目标进行变相实现。
 
-> 注：有些`lodash`中的一些的工具方法，可能没办法实现，暂时保留方法，待有思绪再进行拓展。对于实在没办法实现的可以提取当前函数的目标进行变相实现。
-
-<details>
-<summary>已完成</summary><br>
+### 已完成
 
 **Array**
 - Compact 返回一个非假值的元组
@@ -116,7 +111,6 @@
 
 ...
 
-</details>
 
 <details>
 <summary>进行中</summary><br>
